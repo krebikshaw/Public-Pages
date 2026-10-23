@@ -92,7 +92,28 @@ tr.secrow td{background:var(--bg);font-weight:700;font-size:14px;position:static
 footer{color:var(--muted);font-size:12px;padding:0 16px 40px}
 .toast{position:fixed;bottom:18px;left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:8px 16px;border-radius:10px;opacity:0;transition:.25s;pointer-events:none;z-index:50}
 .toast.show{opacity:1}
-@media (max-width:760px){h1{font-size:16px}.grp>label.t{width:100%}}
+@media (max-width:760px){h1{font-size:16px}.grp>label.t{width:100%}header.top{position:static}}
+select.act{padding:4px 6px;border:1px solid var(--line);border-radius:8px;background:var(--panel);color:var(--ink);font-size:13px;min-width:104px;cursor:pointer}
+tr.act-want td{background:color-mix(in srgb,var(--ok) 11%,transparent)}
+tr.act-edit td{background:color-mix(in srgb,var(--warn) 14%,transparent)}
+tr.act-del td{background:color-mix(in srgb,var(--bad) 11%,transparent)}
+tr.act-del .nm>div{text-decoration:line-through;opacity:.7}
+.card.act-want{border-color:var(--ok);border-width:2px}.card.act-edit{border-color:var(--warn);border-width:2px}.card.act-del{border-color:var(--bad);border-width:2px;opacity:.75}
+input.note.need{border-color:var(--bad);background:color-mix(in srgb,var(--bad) 8%,transparent)}
+.sum{color:var(--muted);font-size:13px;white-space:nowrap}
+#who{width:120px;padding:7px 10px;border:1px solid var(--line);border-radius:10px;background:var(--panel);color:var(--ink);font-size:14px}
+details.help{margin:0 0 12px;padding:8px 14px;background:var(--accent-soft);border-radius:10px;font-size:13px}
+details.help summary{cursor:pointer;font-weight:700}
+details.help ol{margin:6px 0 4px;padding-left:20px}details.help li{margin:2px 0}
+details.help .warn{color:var(--bad)}
+.addbox{margin:0 0 12px;padding:10px 14px;background:var(--panel);border:1px solid var(--line);border-radius:12px}
+.addh{font-weight:700;margin-bottom:6px}
+.addrow{display:flex;gap:10px;align-items:center;justify-content:space-between;padding:4px 0;border-top:1px dashed var(--line)}
+dialog{border:1px solid var(--line);border-radius:14px;background:var(--panel);color:var(--ink);padding:16px 18px;max-width:92vw;width:420px}
+dialog::backdrop{background:rgba(0,0,0,.4)}
+dialog label{display:block;margin:8px 0 2px;font-size:13px;color:var(--muted)}
+dialog input,dialog select,dialog textarea{width:100%;padding:7px 10px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+dialog .btns{display:flex;gap:8px;justify-content:flex-end;margin-top:14px}
 </style>
 </head>
 <body>
@@ -110,10 +131,21 @@ footer{color:var(--muted);font-size:12px;padding:0 16px 40px}
     </select>
     <span class="seg" id="view"><button data-v="table" class="on">表格</button><button data-v="cards">卡片</button></span>
     <button class="btn" id="reset">清除篩選</button>
+    <span class="sum" id="sum"></span>
+    <label style="margin-left:auto">你的名字 <input id="who" placeholder="先填名字" maxlength="12"></label>
   </div>
 </header>
 
 <section class="filters">
+  <details class="help" open>
+    <summary>📖 怎麼使用（3 步驟，點我可收合）</summary>
+    <ol>
+      <li>先在最上方填「你的名字」。</li>
+      <li>每家店左邊的「你的選擇」可選：<b>想去／要修改／要刪除</b>（一家店只能選一個）。需要說明就寫在「備註」；<b>選「要修改」請務必寫要改什麼</b>。沒列出的店，按「＋新增一家店」。</li>
+      <li>全部弄完，按「匯出全部」，把下載的檔案傳給我。下載不了就按「複製成文字」，貼到群組給我。</li>
+    </ol>
+    <div class="warn">注意：你的標記只存在這台手機／電腦，不會自動傳給我，請一次做完、馬上匯出。在 LINE 裡打開的話，請先用右上角「用其他瀏覽器開啟」。</div>
+  </details>
   <div class="grp presets"><label class="t">快速組合</label><span id="presets"></span></div>
   <div class="grp"><label class="t">用餐時段</label><span id="g-meal"></span></div>
   <div class="grp"><label class="t">區域</label><span id="g-dist"></span></div>
@@ -122,26 +154,42 @@ footer{color:var(--muted);font-size:12px;padding:0 16px 40px}
   <div class="toggles">
     <label><input type="checkbox" id="t-open"> 現在營業中</label>
     <label><input type="checkbox" id="t-today"> 今天有營業</label>
-    <label><input type="checkbox" id="t-checked"> 只看已勾選「去」</label>
-    <label><input type="checkbox" id="t-unchecked"> 隱藏已勾選</label>
+    <label><input type="checkbox" id="t-checked"> 只看我標記過的</label>
+    <label><input type="checkbox" id="t-unchecked"> 隱藏我標記過的</label>
     <label>評分 ≥ <select id="minr"><option value="0">不限</option><option>3.5</option><option>4</option><option>4.3</option><option>4.5</option><option>4.7</option></select></label>
     <label><input type="checkbox" id="t-group" checked> 依時段分組顯示</label>
     <span style="margin-left:auto;display:flex;gap:6px">
-      <button class="btn" id="copy">複製已勾選清單</button>
-      <button class="btn" id="exp">匯出勾選／備註</button>
-      <button class="btn" id="imp">匯入</button>
+      <button class="btn" id="addbtn">＋新增一家店</button>
+      <button class="btn" id="exp">匯出全部（傳檔案給我）</button>
+      <button class="btn" id="copy">複製成文字</button>
+      <button class="btn" id="imp" title="還原自己之前匯出的檔案">匯入</button>
     </span>
   </div>
 </section>
 
 <main>
+  <div id="adds"></div>
   <div id="out"></div>
 </main>
 <footer>
   資料擷取日 2026-10-23｜營業時間、評分、價格為擷取當下的 Google 地圖資料，出發前請點「地圖」再確認。<br>
-  「去」勾選與「備註」只存在這台電腦的瀏覽器裡；要和旁邊的人同步，請用右上「匯出／匯入」交換，或一起看同一個畫面。
+  你的標記與備註只存在這台裝置的瀏覽器，不會自動傳給任何人；請按「匯出全部」並把檔案傳給我。
 </footer>
 <div class="toast" id="toast"></div>
+<dialog id="adddlg">
+  <b>＋新增一家店</b>
+  <label>店名（必填）</label><input id="ad-name" maxlength="40">
+  <label>Google 地圖連結（有的話貼這裡）</label><input id="ad-map" placeholder="https://maps.app.goo.gl/…">
+  <label>區域</label><select id="ad-dist"></select>
+  <label>類型</label><select id="ad-meal"></select>
+  <label>備註（選填）</label><input id="ad-note" maxlength="100">
+  <div class="btns"><button class="btn" id="ad-cancel" type="button">取消</button><button class="btn" id="ad-ok" type="button">加入</button></div>
+</dialog>
+<dialog id="txtdlg">
+  <b>請長按下方文字，全選、拷貝，再貼到群組給我</b>
+  <textarea id="txtarea" rows="12" readonly style="margin-top:8px"></textarea>
+  <div class="btns"><button class="btn" id="txtclose" type="button">關閉</button></div>
+</dialog>
 <div class="lb" id="lb"><img id="lbimg" alt=""></div>
 <input type="file" id="file" accept="application/json" hidden>
 
@@ -151,13 +199,15 @@ const DIST_ORDER = ["中西區", "安平區", "南區", "東區", "北區", "安
 const MEALS = ['早午餐','晚餐','宵夜','點心','飲料','住宿','景點'];
 const MEAL_ICON = {'早午餐':'☀️','晚餐':'🌙','宵夜':'🌃','點心':'🍡','飲料':'🧋','住宿':'🏨','景點':'🏞️'};
 const SECTION_ORDER = ['早午餐','晚餐','點心','飲料','住宿','景點'];
-const STORE = 'tainan-list-v1';
+const STORE = 'tainan-list-v2';
 
 /* ---------- 狀態 ---------- */
-let saved = {};
-try { saved = JSON.parse(localStorage.getItem(STORE) || '{}'); } catch(e){}
-if(!saved.go) saved.go = {}; if(!saved.note) saved.note = {};
+let saved = null;
+try { saved = JSON.parse(localStorage.getItem(STORE) || 'null'); } catch(e){}
+if(!saved){ saved = {}; try { const o = JSON.parse(localStorage.getItem('tainan-list-v1') || '{}'); saved.note = o.note || {}; saved.act = {}; Object.keys(o.go || {}).forEach(k => saved.act[k] = 'want'); } catch(e){} }
+saved.act = saved.act || {}; saved.note = saved.note || {}; saved.adds = saved.adds || []; saved.who = saved.who || '';
 const persist = () => { try{ localStorage.setItem(STORE, JSON.stringify(saved)); }catch(e){} };
+const BYID = new Map(DATA.map(r => [r.id, r]));
 
 const F = { q:'', meal:new Set(), dist:new Set(), type:new Set(), src:new Set(),
   open:false, today:false, checked:false, unchecked:false, closed:false, minr:0, group:true, sort:'def', view:'table' };
@@ -203,7 +253,7 @@ function match(r, skip){
   if(F.minr && !(r.rate>=F.minr)) return false;
   if(F.open && openState(r)!=='open') return false;
   if(F.today && openToday(r)!==true) return false;
-  const go=!!saved.go[r.id]; if(F.checked && !go) return false; if(F.unchecked && go) return false;
+  const marked=!!(saved.act[r.id]||saved.note[r.id]); if(F.checked && !marked) return false; if(F.unchecked && marked) return false;
   return true;
 }
 function sorted(list){
@@ -256,10 +306,15 @@ function hoursHTML(r){
 function socialHTML(r){ return r.social.map(s=>'<a href="'+esc(s.u)+'" target="_blank" rel="noopener">'+esc(s.l)+'</a>').join(' '); }
 function rateHTML(r){ return r.rate? '⭐'+r.rate.toFixed(1)+' <span style="color:var(--muted)">('+r.rev.toLocaleString()+')</span>':''; }
 
+const ACTS=[['','— 不標記'],['want','👍 想去'],['edit','✏️ 要修改'],['del','🗑️ 要刪除']];
+const ACT_LABEL={want:'想去',edit:'修改',del:'刪除'};
+const noteHolder=a=>a==='edit'?'請寫要改什麼（必填）':a==='del'?'原因（可不寫）':'備註…';
+function actSel(r){ const a=saved.act[r.id]||''; return '<select class="act">'+ACTS.map(([v,l])=>'<option value="'+v+'"'+(v===a?' selected':'')+'>'+l+'</option>').join('')+'</select>'; }
+function noteInput(r){ const a=saved.act[r.id]||'', n=saved.note[r.id]||''; return '<input class="note'+(a==='edit'&&!n.trim()?' need':'')+'" placeholder="'+noteHolder(a)+'" value="'+esc(n)+'">'; }
+const rowCls=r=>(saved.act[r.id]?'act-'+saved.act[r.id]+' ':'')+(r.closed?'closed':'');
 function rowHTML(r){
-  const go=!!saved.go[r.id];
-  return '<tr class="'+(go?'done ':'')+(r.closed?'closed':'')+'" data-id="'+r.id+'">'
-   +'<td><input type="checkbox" class="go" '+(go?'checked':'')+'></td>'
+  return '<tr class="'+rowCls(r)+'" data-id="'+r.id+'">'
+   +'<td>'+actSel(r)+'</td>'
    +'<td class="name"><div class="nm">'+thumbHTML(r)+'<div>'+esc(r.name)+'</div></div>'+(r.note?'<div style="font-weight:400;color:var(--warn);font-size:12px">'+esc(r.note)+'</div>':'')+'</td>'
    +'<td class="tags">'+tagsHTML(r)+'</td>'
    +'<td class="desc">'+descHTML(r)+'</td>'
@@ -269,13 +324,12 @@ function rowHTML(r){
    +'<td class="addr">'+esc(r.addr)+'</td>'
    +'<td><a class="mapbtn" href="'+esc(r.map)+'" target="_blank" rel="noopener">📍 地圖</a></td>'
    +'<td>'+socialHTML(r)+'</td>'
-   +'<td><input class="note" placeholder="備註…" value="'+esc(saved.note[r.id]||'')+'"></td></tr>';
+   +'<td>'+noteInput(r)+'</td></tr>';
 }
 function cardHTML(r){
-  const go=!!saved.go[r.id];
-  return '<div class="card '+(go?'done ':'')+(r.closed?'closed':'')+'" data-id="'+r.id+'">'
+  return '<div class="card '+rowCls(r)+'" data-id="'+r.id+'">'
    +galHTML(r)
-   +'<h3><input type="checkbox" class="go" '+(go?'checked':'')+'><span>'+esc(r.name)+'</span></h3>'
+   +'<h3>'+actSel(r)+'<span>'+esc(r.name)+'</span></h3>'
    +'<div>'+tagsHTML(r)+'</div>'
    +(descHTML(r)?'<div class="kv">'+descHTML(r)+'</div>':'')
    +'<div class="kv"><b>營業</b>'+hoursHTML(r)+'</div>'
@@ -283,9 +337,9 @@ function cardHTML(r){
    +'<div class="kv meta">'+esc(r.addr)+'</div>'
    +(r.note?'<div class="kv" style="color:var(--warn)">'+esc(r.note)+'</div>':'')
    +'<div class="foot"><a class="mapbtn" href="'+esc(r.map)+'" target="_blank" rel="noopener">📍 地圖</a>'+socialHTML(r)+'</div>'
-   +'<input class="note" placeholder="備註…" value="'+esc(saved.note[r.id]||'')+'"></div>';
+   +noteInput(r)+'</div>';
 }
-const TH=[['去',0],['店名','name'],['標籤',0],['簡短說明',0],['營業時間',0],['價格',0],['⭐Google','rate'],['地址','dist'],['地圖',0],['社群・食記',0],['備註',0]];
+const TH=[['你的選擇',0],['店名','name'],['標籤',0],['簡短說明',0],['營業時間',0],['價格',0],['⭐Google','rate'],['地址','dist'],['地圖',0],['社群・食記',0],['備註',0]];
 function tableHTML(list, showSecHeads){
   let h='<div class="tablewrap"><table><thead><tr>'+TH.map(([t,k])=>'<th class="'+(k?'':'nosort')+'" '+(k?'data-sort="'+k+'"':'')+'>'+t+'</th>').join('')+'</tr></thead><tbody>';
   if(showSecHeads){
@@ -345,35 +399,100 @@ $('out').addEventListener('click',e=>{
   const th=e.target.closest('th[data-sort]'); if(th){ F.sort=th.dataset.sort; $('sort').value=F.sort; render(); }
 });
 $('out').addEventListener('change',e=>{
-  if(!e.target.classList.contains('go')) return;
-  const id=e.target.closest('[data-id]').dataset.id; if(e.target.checked) saved.go[id]=1; else delete saved.go[id]; persist();
-  const el=e.target.closest('[data-id]'); el.classList.toggle('done',e.target.checked);
-  if(F.checked||F.unchecked) render();
+  if(!e.target.classList.contains('act')) return;
+  const el=e.target.closest('[data-id]'), id=el.dataset.id, v=e.target.value;
+  if(v) saved.act[id]=v; else delete saved.act[id]; persist();
+  el.classList.remove('act-want','act-edit','act-del'); if(v) el.classList.add('act-'+v);
+  const n=el.querySelector('input.note'); n.placeholder=noteHolder(v); n.classList.toggle('need', v==='edit'&&!n.value.trim());
+  updateSummary(); if(F.checked||F.unchecked) render();
 });
 $('out').addEventListener('input',e=>{
   if(!e.target.classList.contains('note')) return;
-  const id=e.target.closest('[data-id]').dataset.id; const v=e.target.value; if(v) saved.note[id]=v; else delete saved.note[id]; persist();
+  const id=e.target.closest('[data-id]').dataset.id, v=e.target.value; if(v.trim()) saved.note[id]=v; else delete saved.note[id]; persist();
+  e.target.classList.toggle('need', saved.act[id]==='edit'&&!v.trim()); updateSummary();
 });
 $('lb').onclick=()=>$('lb').classList.remove('show'); document.addEventListener('keydown',e=>{ if(e.key==='Escape') $('lb').classList.remove('show'); });
 function toast(m){ const t=$('toast'); t.textContent=m; t.classList.add('show'); setTimeout(()=>t.classList.remove('show'),1800); }
-$('copy').onclick=()=>{
-  const rs=DATA.filter(r=>saved.go[r.id]); if(!rs.length){ toast('還沒有勾選任何項目'); return; }
-  const txt=rs.map(r=>'☑ '+r.name+'｜'+r.sec0+'｜'+r.dist+'｜'+(r.hours||'營業時間未提供')+'｜'+r.map+(saved.note[r.id]?'｜'+saved.note[r.id]:'')).join('\n');
-  navigator.clipboard.writeText(txt).then(()=>toast('已複製 '+rs.length+' 筆'),()=>toast('複製失敗，請改用匯出'));
-};
+function counts(){
+  const c={want:0,edit:0,del:0,add:saved.adds.length};
+  Object.entries(saved.act).forEach(([id,a])=>{ if(BYID.has(id)&&c[a]!==undefined) c[a]++; });
+  return c;
+}
+function updateSummary(){ const c=counts(); $('sum').textContent='已標記：想去 '+c.want+'｜修改 '+c.edit+'｜刪除 '+c.del+'｜新增 '+c.add; }
+const nowStr=()=>new Intl.DateTimeFormat('sv-SE',{timeZone:'Asia/Taipei',dateStyle:'short',timeStyle:'short'}).format(new Date());
+const entry=r=>({id:r.id,name:r.name,district:r.dist,type:r.primary,action:ACT_LABEL[saved.act[r.id]]||'',note:saved.note[r.id]||''});
+function buildExport(){
+  const all=DATA.map(entry), c=counts();
+  return {app:'tainan-list',version:2,who:$('who').value.trim(),exportedAt:nowStr(),
+    summary:{想去:c.want,修改:c.edit,刪除:c.del,新增:c.add},
+    changes:all.filter(x=>x.action||x.note), adds:saved.adds, all};
+}
+function buildText(){
+  const L=['【台南清單｜'+$('who').value.trim()+'】'];
+  const grp=(title,f)=>{ const rs=DATA.filter(f); if(!rs.length) return; L.push('',title+'（'+rs.length+'）'); rs.forEach(r=>L.push('・'+r.name+'（'+r.dist+'）'+(saved.note[r.id]?'｜'+saved.note[r.id]:''))); };
+  grp('👍 想去',r=>saved.act[r.id]==='want'); grp('✏️ 要修改',r=>saved.act[r.id]==='edit'); grp('🗑️ 要刪除',r=>saved.act[r.id]==='del');
+  grp('💬 只留言',r=>!saved.act[r.id]&&saved.note[r.id]);
+  if(saved.adds.length){ L.push('','🆕 新增（'+saved.adds.length+'）'); saved.adds.forEach(a=>L.push('・'+a.name+'（'+a.dist+'／'+a.meal+'）'+(a.map?'｜'+a.map:'')+(a.note?'｜'+a.note:''))); }
+  if(L.length===1) L.push('','（還沒有任何標記）');
+  return L.join('\n');
+}
+function ready(){
+  if(!$('who').value.trim()){ toast('請先在最上方填「你的名字」'); $('who').focus(); return false; }
+  const miss=DATA.filter(r=>saved.act[r.id]==='edit'&&!(saved.note[r.id]||'').trim()).map(r=>r.name);
+  if(miss.length && !confirm('這 '+miss.length+' 家選了「要修改」但沒寫備註：\n'+miss.slice(0,8).join('、')+(miss.length>8?'…':'')+'\n\n我會不知道要改什麼。\n按「取消」回去補寫，按「確定」照樣匯出。')) return false;
+  return true;
+}
+$('who').oninput=e=>{ saved.who=e.target.value; persist(); };
 $('exp').onclick=()=>{
-  const blob=new Blob([JSON.stringify({go:saved.go,note:saved.note},null,1)],{type:'application/json'});
-  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download='台南清單-勾選與備註.json'; a.click(); toast('已匯出');
+  if(!ready()) return; const d=buildExport();
+  const fn='台南清單_'+d.who.replace(/[\\/:*?"<>|\s]+/g,'')+'_'+d.exportedAt.replace(/[-: ]/g,'')+'.json';
+  const blob=new Blob([JSON.stringify(d,null,1)],{type:'application/json'});
+  const a=document.createElement('a'); a.href=URL.createObjectURL(blob); a.download=fn; a.click(); toast('已匯出：'+fn);
 };
+$('copy').onclick=()=>{
+  if(!ready()) return; const t=buildText();
+  const fallback=()=>{ $('txtarea').value=t; $('txtdlg').showModal(); $('txtarea').select(); };
+  if(navigator.clipboard&&navigator.clipboard.writeText) navigator.clipboard.writeText(t).then(()=>toast('已複製，去群組貼上'),fallback); else fallback();
+};
+$('txtclose').onclick=()=>$('txtdlg').close();
 $('imp').onclick=()=>$('file').click();
 $('file').onchange=e=>{
   const f=e.target.files[0]; if(!f) return; const rd=new FileReader();
-  rd.onload=()=>{ try{ const j=JSON.parse(rd.result); Object.assign(saved.go,j.go||{}); Object.assign(saved.note,j.note||{}); persist(); render(); toast('已合併匯入'); }catch(err){ toast('檔案格式不正確'); } };
+  rd.onload=()=>{ try{
+    const j=JSON.parse(rd.result);
+    if(Array.isArray(j.all)) j.all.forEach(x=>{ const a={'想去':'want','修改':'edit','刪除':'del'}[x.action]; if(!BYID.has(x.id)) return; if(a) saved.act[x.id]=a; if(x.note) saved.note[x.id]=x.note; });
+    else { Object.keys(j.go||{}).forEach(id=>{ if(BYID.has(id)) saved.act[id]='want'; }); Object.assign(saved.note,j.note||{}); }
+    (j.adds||[]).forEach(a=>{ if(a&&a.tid&&!saved.adds.some(z=>z.tid===a.tid)) saved.adds.push(a); });
+    if(j.who&&!$('who').value.trim()){ $('who').value=j.who; saved.who=j.who; }
+    persist(); render(); renderAdds(); updateSummary(); toast('已匯入');
+  }catch(err){ toast('檔案格式不正確'); } };
   rd.readAsText(f); e.target.value='';
 };
 
+/* ---------- 新增店家 ---------- */
+$('ad-dist').innerHTML=[...DIST_ORDER,'其他／不確定'].map(d=>'<option>'+esc(d)+'</option>').join('');
+$('ad-meal').innerHTML=[...MEALS,'其他'].map(m=>'<option>'+esc(m)+'</option>').join('');
+$('addbtn').onclick=()=>{ ['ad-name','ad-map','ad-note'].forEach(i=>$(i).value=''); $('adddlg').showModal(); };
+$('ad-cancel').onclick=()=>$('adddlg').close();
+$('ad-ok').onclick=()=>{
+  const name=$('ad-name').value.trim(); if(!name){ toast('請填店名'); $('ad-name').focus(); return; }
+  saved.adds.push({tid:'new-'+Date.now().toString(36),name,map:$('ad-map').value.trim(),dist:$('ad-dist').value,meal:$('ad-meal').value,note:$('ad-note').value.trim()});
+  persist(); renderAdds(); updateSummary(); $('adddlg').close(); toast('已加入，匯出時會一起帶給我');
+};
+function renderAdds(){
+  const h=saved.adds.map(a=>'<div class="addrow" data-tid="'+esc(a.tid)+'"><span>🆕 <b>'+esc(a.name)+'</b>（'+esc(a.dist)+'／'+esc(a.meal)+'）'
+    +(/^https?:\/\//.test(a.map)?' <a href="'+esc(a.map)+'" target="_blank" rel="noopener">地圖</a>':(a.map?' '+esc(a.map):''))+(a.note?'｜'+esc(a.note):'')
+    +'</span><button class="btn" data-del="1">刪除</button></div>').join('');
+  $('adds').innerHTML=h?'<div class="addbox"><div class="addh">🆕 我新增的店（還沒進清單，匯出後由我加入）</div>'+h+'</div>':'';
+}
+$('adds').addEventListener('click',e=>{
+  const b=e.target.closest('[data-del]'); if(!b) return;
+  const tid=b.closest('[data-tid]').dataset.tid; saved.adds=saved.adds.filter(a=>a.tid!==tid); persist(); renderAdds(); updateSummary();
+});
+
 DATA.forEach((r,i)=>{ r.ord=i; r.sec0=r.primary; });
-renderPresets(); render();
+if(window.innerWidth<760) F.view='cards';
+renderPresets(); render(); $('who').value=saved.who; renderAdds(); updateSummary();
 setInterval(()=>{ if(F.open && document.activeElement.tagName!=='INPUT') render(); }, 60000);
 </script>
 </body>
