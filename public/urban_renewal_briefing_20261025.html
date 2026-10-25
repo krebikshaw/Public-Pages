@@ -1,0 +1,1111 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>中和路475巷都更地主會議</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&family=Noto+Serif+TC:wght@600;700&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<style>
+/* 版面概念：建築圖說式的工作報告。頂部案件資訊，分頁切主題，時間碼可點播原錄音，底部固定播放列 */
+:root {
+  --bg: #f4f6f5;
+  --surface: #ffffff;
+  --surface-2: #eef1f0;
+  --fg: #14191b;
+  --fg-2: #4a5357;
+  --muted: #7a8387;
+  --line: #d9dfdd;
+  --accent: #1d5b86;
+  --accent-soft: #e3edf5;
+  --warn-bg: #fff4d6;
+  --warn-fg: #7a5300;
+  --warn-mark: #fab219;
+  --good-fg: #006300;
+  --crit-fg: #b3261e;
+  --viz-1: #2a78d6;
+  --viz-2: #eb6834;
+  --viz-3: #1baf7a;
+  --viz-n: #b4b6b0;
+  --viz-n2: #d9dad5;
+  --viz-grid: #e1e0d9;
+  --viz-axis: #c3c2b7;
+  --font-display: "Noto Serif TC", "Songti TC", "PMingLiU", serif;
+  --font-body: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #0f1214; --surface: #171b1e; --surface-2: #1e2327; --fg: #e9edee; --fg-2: #b9c1c4; --muted: #8b9498;
+    --line: #2b3236; --accent: #7fb3dc; --accent-soft: #1d2b36; --warn-bg: #3a2e10; --warn-fg: #f5cf73; --warn-mark: #fab219;
+    --good-fg: #0ca30c; --crit-fg: #ff8a80;
+    --viz-1: #3987e5; --viz-2: #d95926; --viz-3: #199e70; --viz-n: #5d5f5a; --viz-n2: #3a3b38; --viz-grid: #2c2c2a; --viz-axis: #383835;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #0f1214; --surface: #171b1e; --surface-2: #1e2327; --fg: #e9edee; --fg-2: #b9c1c4; --muted: #8b9498;
+  --line: #2b3236; --accent: #7fb3dc; --accent-soft: #1d2b36; --warn-bg: #3a2e10; --warn-fg: #f5cf73; --warn-mark: #fab219;
+  --good-fg: #0ca30c; --crit-fg: #ff8a80;
+  --viz-1: #3987e5; --viz-2: #d95926; --viz-3: #199e70; --viz-n: #5d5f5a; --viz-n2: #3a3b38; --viz-grid: #2c2c2a; --viz-axis: #383835;
+  color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+section.panel { scroll-margin-top: 64px; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  margin: 0; background: var(--bg); color: var(--fg); font-family: var(--font-body);
+  font-size: 15px; line-height: 1.75; padding-bottom: 96px;
+}
+.wrap { max-width: 1120px; margin: 0 auto; padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+h1, h2, h3, h4 { text-wrap: balance; line-height: 1.35; margin: 0; }
+h1 { font-family: var(--font-display); font-size: clamp(24px, 3.4vw, 34px); font-weight: 700; letter-spacing: .02em; }
+h2 { font-family: var(--font-display); font-size: 22px; font-weight: 700; }
+h3 { font-size: 17px; font-weight: 700; }
+h4 { font-size: 15px; font-weight: 700; color: var(--fg-2); }
+p { margin: 0; }
+a { color: var(--accent); }
+.mono { font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+
+/* 案件抬頭 */
+header.case { padding-block: 28px 18px; border-bottom: 1px solid var(--line); background: var(--surface); }
+.case-grid { display: grid; gap: 18px; }
+.eyebrow { font-size: 12px; letter-spacing: .14em; color: var(--muted); font-weight: 500; }
+.meta { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(190px, 100%), 1fr)); gap: 10px 24px; margin-top: 4px; }
+.meta div { min-width: 0; }
+.meta dt { font-size: 12px; color: var(--muted); letter-spacing: .06em; }
+.meta dd { margin: 0; font-weight: 500; }
+.notice { display: flex; gap: 12px; align-items: flex-start; background: var(--accent-soft); border-radius: 8px; padding: 12px 14px; }
+.notice b { color: var(--accent); }
+.legend-inline { display: flex; flex-wrap: wrap; gap: 8px 16px; font-size: 13px; color: var(--fg-2); align-items: center; }
+.notice.update { background: var(--surface-2); border: 1px solid var(--line); }
+.notice.update b { color: var(--good-fg); }
+.docs { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(280px, 100%), 1fr)); gap: 16px; }
+.doc { margin: 0; display: grid; gap: 8px; align-content: start; min-width: 0; }
+.doc img { width: 100%; height: 240px; object-fit: cover; object-position: top; border-radius: 8px; border: 1px solid var(--line); background: var(--surface-2); display: block; }
+.doc figcaption { font-size: 13px; color: var(--fg-2); }
+
+/* 分頁 */
+nav.tabs { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 20; background: var(--surface); border-bottom: 1px solid var(--line); }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 30; background: var(--surface); }
+.tablist { display: flex; gap: 2px; overflow-x: auto; scrollbar-width: thin; }
+.tab { appearance: none; border: 0; background: none; color: var(--fg-2); font: inherit; font-size: 14px; padding: 12px 14px 10px; border-bottom: 2px solid transparent; cursor: pointer; white-space: nowrap; }
+.tab:hover { color: var(--fg); }
+.tab[aria-selected="true"] { color: var(--accent); border-bottom-color: var(--accent); font-weight: 700; }
+.tab:focus-visible, .ts:focus-visible, button:focus-visible, input:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+
+main { padding-block: 28px 40px; }
+main, header.case, .player { overflow-wrap: anywhere; }
+section.panel { display: grid; gap: 28px; }
+.block { display: grid; gap: 14px; align-content: start; }
+.block > p, .lead { max-width: 72ch; }
+.lead { font-size: 16px; color: var(--fg-2); }
+.card { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 18px 20px; min-width: 0; }
+.cols-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(320px, 100%), 1fr)); gap: 16px; }
+.cols-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(240px, 100%), 1fr)); gap: 16px; }
+ul.clean { margin: 0; padding-left: 1.2em; display: grid; gap: 6px; }
+ul.clean li::marker { color: var(--muted); }
+ol.clean { margin: 0; padding-left: 1.4em; display: grid; gap: 8px; }
+.quote { border-left: 3px solid var(--line); padding: 2px 0 2px 12px; color: var(--fg-2); }
+.quote q { quotes: "「" "」"; }
+.small { font-size: 13px; color: var(--muted); }
+.sep { height: 1px; background: var(--line); border: 0; margin: 0; }
+
+/* 時間碼 / 標記 */
+.ts { appearance: none; border: 1px solid var(--line); background: var(--surface-2); color: var(--accent); font-family: var(--font-mono); font-variant-numeric: tabular-nums; font-size: 12px; line-height: 1; padding: 4px 6px 3px; border-radius: 4px; cursor: pointer; vertical-align: 1px; white-space: nowrap; }
+.ts::before { content: "▸ "; font-size: 10px; }
+.ts:hover { border-color: var(--accent); }
+.ts.playing { background: var(--accent); color: var(--surface); border-color: var(--accent); }
+.tag { display: inline-flex; align-items: center; gap: 4px; font-size: 12px; line-height: 1; padding: 4px 7px 3px; border-radius: 999px; white-space: nowrap; vertical-align: 1px; }
+.tag.verify { background: var(--warn-bg); color: var(--warn-fg); }
+.tag.verify::before { content: ""; width: 7px; height: 7px; background: var(--warn-mark); transform: rotate(45deg); display: inline-block; }
+.tag.guess { border: 1px solid var(--line); color: var(--fg-2); }
+.tag.guess::before { content: "?"; font-weight: 700; color: var(--muted); }
+.tag.ok { border: 1px solid var(--line); color: var(--good-fg); }
+.tag.ok::before { content: "✓"; }
+.tag.key { background: var(--accent-soft); color: var(--accent); font-weight: 700; }
+
+/* 數字卡 */
+.stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(150px, 100%), 1fr)); gap: 12px; }
+.stat { background: var(--surface); border: 1px solid var(--line); border-radius: 10px; padding: 14px 16px; display: grid; gap: 4px; align-content: start; min-width: 0; }
+.stat .label { font-size: 13px; color: var(--fg-2); }
+.stat .value { font-size: 28px; font-weight: 700; line-height: 1.2; }
+.stat .value small { font-size: 14px; font-weight: 500; color: var(--fg-2); margin-left: 2px; }
+.stat .sub { font-size: 12.5px; color: var(--muted); display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+
+/* 表格 */
+.table-wrap { overflow-x: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+table { border-collapse: collapse; width: 100%; font-size: 14px; }
+th, td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--line); }
+th { font-size: 12.5px; color: var(--muted); font-weight: 500; letter-spacing: .04em; background: var(--surface-2); white-space: nowrap; }
+tr:last-child td { border-bottom: 0; }
+td.nowrap { white-space: nowrap; }
+.tbl-min { min-width: 760px; }
+
+/* 住戶配置圖 */
+.bldg { display: grid; grid-template-columns: 34px minmax(0, 1fr) minmax(0, 1fr); gap: 8px; max-width: 760px; }
+.bldg > * { min-width: 0; }
+.bldg .hdr { text-align: center; font-weight: 700; font-family: var(--font-display); padding-bottom: 2px; }
+.bldg .fl { font-family: var(--font-mono); font-size: 12px; color: var(--muted); display: flex; align-items: center; justify-content: center; }
+.unit { border: 1px solid var(--line); border-radius: 8px; padding: 10px 12px; background: var(--surface); display: grid; gap: 4px; min-width: 0; border-left-width: 4px; }
+.unit .who { font-weight: 700; }
+.unit .what { font-size: 13px; color: var(--fg-2); }
+.unit.s-yes { border-left-color: var(--viz-1); }
+.unit.s-key { border-left-color: var(--viz-2); }
+.unit.s-me { border-left-color: var(--viz-3); background: var(--surface-2); }
+.ground { grid-column: 2 / 4; height: 6px; border-radius: 3px; background: var(--viz-n2); }
+.sw { width: 10px; height: 10px; border-radius: 2px; display: inline-block; }
+
+/* 圖表 */
+.chart { position: relative; }
+.chart svg { display: block; width: 100%; height: auto; overflow: visible; }
+.chart text { fill: var(--fg-2); font-family: var(--font-body); font-size: 12px; }
+.chart .axis-t { fill: var(--muted); font-family: var(--font-mono); font-size: 11px; }
+.chart .lbl-in { fill: #ffffff; font-size: 12px; font-weight: 500; pointer-events: none; }
+.chart .hit { cursor: pointer; }
+.chart .hit:hover .mark, .chart .hit:focus .mark { opacity: .82; }
+.viz-legend { display: flex; flex-wrap: wrap; gap: 6px 16px; font-size: 13px; color: var(--fg-2); }
+.viz-legend span { display: inline-flex; align-items: center; gap: 6px; }
+.tip { position: fixed; z-index: 50; pointer-events: none; background: var(--fg); color: var(--bg); font-size: 13px; line-height: 1.5; padding: 7px 10px; border-radius: 6px; max-width: 280px; opacity: 0; transition: opacity .12s; }
+.tip.on { opacity: 1; }
+.chart-scroll { overflow-x: auto; }
+.chart-scroll > .chart { min-width: 620px; }
+
+/* 立場矩陣 */
+.cell { display: inline-flex; align-items: center; gap: 4px; font-size: 12.5px; padding: 3px 8px 2px; border-radius: 999px; white-space: nowrap; }
+.c-prop { background: var(--viz-1); color: #fff; }
+.c-sup { border: 1.5px solid var(--viz-1); color: var(--fg); }
+.c-minor { background: var(--surface-2); color: var(--fg-2); border: 1px solid var(--line); }
+.c-none { color: var(--muted); }
+
+/* 各戶卡 */
+.house { display: grid; gap: 10px; }
+.house .head { display: flex; flex-wrap: wrap; gap: 8px 12px; align-items: baseline; }
+.house .unitno { font-family: var(--font-mono); font-size: 13px; color: var(--accent); font-weight: 500; }
+
+/* 逐字稿 */
+.tx-tools { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
+.tx-tools input { font: inherit; padding: 8px 12px; border-radius: 8px; border: 1px solid var(--line); background: var(--surface); color: var(--fg); min-width: 0; flex: 1 1 240px; }
+.tx { display: grid; gap: 0; max-height: 70vh; overflow-y: auto; border: 1px solid var(--line); border-radius: 10px; background: var(--surface); }
+.tx-row { display: grid; grid-template-columns: 76px 1fr; gap: 10px; padding: 8px 12px; border-bottom: 1px solid var(--line); font-size: 14px; }
+.tx-row:last-child { border-bottom: 0; }
+.tx-row p { min-width: 0; overflow-wrap: anywhere; }
+.tx-row mark { background: var(--warn-bg); color: var(--fg); }
+.tx-row .sec { font-size: 12px; color: var(--accent); font-weight: 700; grid-column: 1 / -1; margin-top: 4px; }
+
+/* 播放列 */
+.player { position: fixed; left: 0; right: 0; bottom: 0; z-index: 40; background: var(--surface); border-top: 1px solid var(--line); padding-bottom: env(safe-area-inset-bottom, 0px); }
+.player .wrap { display: flex; flex-wrap: wrap; gap: 6px 14px; align-items: center; padding-block: 8px; }
+.player audio { flex: 1 1 320px; min-width: 0; height: 36px; }
+.player .now { font-size: 13px; color: var(--fg-2); flex: 1 1 260px; min-width: 0; }
+.player .err { color: var(--crit-fg); }
+@media (max-width: 560px) {
+  .bldg { grid-template-columns: 26px minmax(0, 1fr) minmax(0, 1fr); gap: 6px; }
+  .unit { padding: 8px; }
+  .unit .what { font-size: 12px; }
+  .tx-row { grid-template-columns: 1fr; gap: 2px; }
+}
+@media (prefers-reduced-motion: reduce) { * { transition: none !important; } }
+</style>
+</head>
+<body>
+
+<header class="case">
+  <div class="wrap case-grid">
+    <div class="eyebrow">都更案 錄音整理報告 · 校正版 · 已併入會後書面資料</div>
+    <h1>中和路475巷 2號／4號 都更地主會議</h1>
+    <dl class="meta">
+      <div><dt>錄音日期</dt><dd>2026/10/25（日）約 13:45–15:05</dd></div>
+      <div><dt>錄音長度</dt><dd class="mono">1:20:54</dd></div>
+      <div><dt>會議性質</dt><dd>8 戶地主自行召開，討論偉鉅的合建契約</dd></div>
+      <div><dt>地點</dt><dd>某住戶家中 <span class="tag guess">推定為孫先生家</span></dd></div>
+      <div><dt>召集人</dt><dd>4號2樓 劉先生</dd></div>
+      <div><dt>錄音者</dt><dd>4號3樓（本報告的「我們」）</dd></div>
+    </dl>
+    <div class="notice">
+      <p><b>先看這裡：</b>這份錄音不是偉鉅來開的說明會。偉鉅的人沒有到場，只在討論中被轉述（例如「我有問那個林專員」<button class="ts" type="button">24:08</button>）。實際上是劉先生召集 2號、4號兩棟共 8 戶地主，再帶自己請的顧問來，一起檢視偉鉅給的合建契約，並商量 2號3樓毛先生房客的問題。</p>
+    </div>
+    <div class="notice update">
+      <p><b>會後更新：</b>會中提出的信託與瓦斯問題，已整理成 5 項標在契約截圖上，請林先生（推定即錄音中的林專員）轉問偉鉅老闆，等待回覆。另取得前一間建商合約第 6／19 頁：該合約要等<b>所有權人超過 90% 簽約</b>才辦土地信託。詳見「合約條文」分頁。</p>
+    </div>
+    <div class="legend-inline">
+      <span><button class="ts" type="button" tabindex="-1">29:57</button>點一下就從錄音那個時間播放</span>
+      <span><span class="tag verify">待書面比對</span>需要拿契約或書面資料確認</span>
+      <span><span class="tag guess">推定</span>依上下文判斷，錄音不夠清楚</span>
+    </div>
+  </div>
+</header>
+
+<nav class="tabs" aria-label="報告分頁">
+  <div class="wrap tablist" role="tablist">
+    <button class="tab" role="tab" id="t-overview" aria-controls="overview" aria-selected="true" type="button">總覽</button>
+    <button class="tab" role="tab" id="t-people" aria-controls="people" aria-selected="false" type="button">人物與住戶</button>
+    <button class="tab" role="tab" id="t-contract" aria-controls="contract" aria-selected="false" type="button">合約條文</button>
+    <button class="tab" role="tab" id="t-mao" aria-controls="mao" aria-selected="false" type="button">毛先生與房客</button>
+    <button class="tab" role="tab" id="t-houses" aria-controls="houses" aria-selected="false" type="button">各戶發言</button>
+    <button class="tab" role="tab" id="t-context" aria-controls="context" aria-selected="false" type="button">案件背景與顧問</button>
+    <button class="tab" role="tab" id="t-next" aria-controls="next" aria-selected="false" type="button">下一步與待確認</button>
+    <button class="tab" role="tab" id="t-appendix" aria-controls="appendix" aria-selected="false" type="button">附錄・逐字稿</button>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- ============ 總覽 ============ -->
+<section class="panel" id="overview" role="tabpanel" aria-labelledby="t-overview">
+  <div class="block">
+    <h2>30 秒看懂</h2>
+    <ol class="clean lead">
+      <li><b>大方向一致：8 戶都傾向跟偉鉅合作。</b>顧問與多數住戶的看法是：本棟位在巷內、基地不大，「沒有資格選建商」<button class="ts" type="button">16:49</button>；偉鉅已經買進成為地主，這次錯過可能要再等 20–30 年<button class="ts" type="button">21:02</button>。</li>
+      <li><b>合約的共識重點是「信託」。</b>許太太對照新北市都更處的範本逐條檢查，提出信託標的漏寫「資金」、信託時點太早、不得拿地主土地去貸款、瓦斯內外管費用誰付等修改<button class="ts" type="button">29:57</button>。電動車充電、廚餘空間等設備細項，多數人認為是次要。</li>
+      <li><b>唯一卡關的是 2號3樓毛先生的房客。</b>毛先生本人不反對，但房客是他的好友，花了 270 萬整修、簽了 20 年公證租約、月租只收 1 萬。毛先生堅持要房客同意<button class="ts" type="button">4:31</button>，而且明說不怕強拆<button class="ts" type="button">49:24</button>，所以只能靠溝通。</li>
+      <li><b>會後分兩路進行：</b>許太太整理條文，先貼住戶群組確認再交給建商；楊先生、孫先生與毛先生一起去找房客談<button class="ts" type="button">1:10:20</button>。<span class="tag ok">更新</span> 條文問題已整理成 5 項送偉鉅，等待老闆回覆。</li>
+      <li><b>書面資料的新發現：</b>契約原文確認信託標的只寫「起造人」、簽約後 15 日內就要信託。前一間建商的合約則是所有權人超過 90% 簽約才信託，可以作為要求延後的前例。前一間合約也寫明土地上的出租問題由地主自行清理、費用自負，這直接關係到毛先生的房客。</li>
+    </ol>
+  </div>
+
+  <div class="stats">
+    <div class="stat"><span class="label">本棟地主</span><span class="value">8<small>戶</small></span><span class="sub">2號、4號各 1–4 樓</span></div>
+    <div class="stat"><span class="label">表態支持</span><span class="value">7<small>戶</small></span><span class="sub">楊先生估「已超過 80%」<button class="ts" type="button">1:06:13</button></span></div>
+    <div class="stat"><span class="label">待溝通</span><span class="value">1<small>戶</small></span><span class="sub">2號3樓 毛先生（房客問題）</span></div>
+    <div class="stat"><span class="label">本棟占整體基地</span><span class="value">&lt;50<small>%</small></span><span class="sub">楊先生說法<button class="ts" type="button">50:26</button><span class="tag verify">待書面比對</span></span></div>
+    <div class="stat"><span class="label">過去整合失敗</span><span class="value">約 5<small>次</small></span><span class="sub">劉先生說法<button class="ts" type="button">14:31</button></span></div>
+    <div class="stat"><span class="label">已送偉鉅的問題</span><span class="value">5<small>項</small></span><span class="sub">會後經林先生轉問老闆<span class="tag verify">待回覆</span></span></div>
+  </div>
+
+  <div class="card block">
+    <div style="display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px;align-items:baseline">
+      <h3>會議進程（依錄音時間）</h3>
+      <span class="small">點色塊可從該段開始播放</span>
+    </div>
+    <div class="viz-legend" id="agenda-legend"></div>
+    <div class="chart-scroll"><div class="chart" id="agenda-chart"></div></div>
+    <div class="table-wrap"><table class="tbl-min" id="agenda-table"><thead><tr><th>時間</th><th>段落</th><th>主要發言者</th></tr></thead><tbody></tbody></table></div>
+  </div>
+</section>
+
+<!-- ============ 人物與住戶 ============ -->
+<section class="panel" id="people" role="tabpanel" aria-labelledby="t-people" hidden>
+  <div class="block">
+    <h2>住戶配置</h2>
+    <p class="lead">門牌與樓層來自會中點名<button class="ts" type="button">8:48</button>與逐戶發言順序<button class="ts" type="button">57:44</button>。劉先生兩度自稱「4號2樓」<button class="ts" type="button">14:31</button><button class="ts" type="button">1:02:43</button>。</p>
+    <div class="legend-inline">
+      <span><span class="sw" style="background:var(--viz-1)"></span>表態支持</span>
+      <span><span class="sw" style="background:var(--viz-2)"></span>待溝通（關鍵）</span>
+      <span><span class="sw" style="background:var(--viz-3)"></span>錄音者家（我們）</span>
+    </div>
+    <div class="bldg" role="img" aria-label="2號與4號兩棟各四層的住戶配置圖">
+      <div></div><div class="hdr">2號</div><div class="hdr">4號</div>
+      <div class="fl">4F</div>
+      <div class="unit s-yes"><span class="who">許先生・許太太</span><span class="what">許太太是室內設計師，負責整理合約修改</span></div>
+      <div class="unit s-yes"><span class="who">姓名未提及</span><span class="what">頂樓。女兒牆、頂樓陽台滲水 <span class="tag guess">推定</span></span></div>
+      <div class="fl">3F</div>
+      <div class="unit s-key"><span class="who">毛先生（78 歲）</span><span class="what">不反對，但須房客同意。女兒、女婿陪同</span></div>
+      <div class="unit s-me"><span class="who">錄音者家</span><span class="what">會後提到分回約 50 坪；樓上漏水</span></div>
+      <div class="fl">2F</div>
+      <div class="unit s-yes"><span class="who">孫先生・孫太太</span><span class="what">新加入群組；推定為會場主人</span></div>
+      <div class="unit s-yes"><span class="who">劉先生・劉太太</span><span class="what">召集人，住台北，此戶出租</span></div>
+      <div class="fl">1F</div>
+      <div class="unit s-yes"><span class="who">楊先生（楊老闆）</span><span class="what">晚到；主張分頭進行</span></div>
+      <div class="unit s-yes"><span class="who">姓名未提及</span><span class="what">自住；認為信託最重要</span></div>
+      <div></div><div class="ground"></div>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>地主</h2>
+    <div class="table-wrap"><table class="tbl-min">
+      <thead><tr><th>戶別</th><th>人物</th><th>身分與背景</th><th>立場</th><th>辨識依據</th></tr></thead>
+      <tbody>
+        <tr><td class="nowrap">4號2樓</td><td><b>劉先生</b>（召集人）、劉太太</td><td>從小住在這裡，建物還沒蓋好時母親就買下（預售）<button class="ts" type="button">14:31</button>。現在與太太住台北<button class="ts" type="button">1:05:03</button>，這戶出租，月租 4 萬多<button class="ts" type="button">3:29</button>。自費請了三位顧問。</td><td>積極推動。主張「戰略重於戰術」、跟建商合作雙贏<button class="ts" type="button">25:19</button>。曾提議個人出 200 萬幫毛先生解決房客問題<button class="ts" type="button">4:26</button>。</td><td>自我介紹兩次</td></tr>
+        <tr><td class="nowrap">2號1樓</td><td><b>楊先生</b>（楊老闆）</td><td>約 13:29 才到場<button class="ts" type="button">13:29</button>。被劉先生稱為「比較有經驗」<button class="ts" type="button">1:05:13</button>。</td><td>支持。主導勸說毛先生、提出分頭進行與財產權復原機制<button class="ts" type="button">54:35</button>。</td><td>逐戶發言時被點名「楊老闆發言完」<button class="ts" type="button">57:44</button>；之後有人說「附和楊先生的想法」</td></tr>
+        <tr><td class="nowrap">2號2樓</td><td><b>孫先生</b>、孫太太</td><td>加入群組不到一週就表態要都更<button class="ts" type="button">15:06</button>。會後有人說「剛好買了，福氣」<button class="ts" type="button">1:12:41</button>，推定是近年新買的屋主。</td><td>支持；「他的問題是道義問題，解決就 OK」<button class="ts" type="button">57:52</button>。曾請教宏國建設的趙經理<button class="ts" type="button">13:07</button>。</td><td>點名「孫老闆 2號2樓」；劉先生收尾特別致謝 <span class="tag guess">會場主人為推定</span></td></tr>
+        <tr><td class="nowrap">2號3樓</td><td><b>毛先生</b>（78 歲）、女兒（毛小姐）、女婿</td><td>房子由老姨丈、老姨婆（林公公、林婆婆）贈與或傳下 <span class="tag guess">推定</span><button class="ts" type="button">37:55</button>。自稱「Google 我的名字就知道」，曾臥軌、癱瘓高速公路、能帶群眾<button class="ts" type="button">39:25</button>。</td><td>不反對都更，但房客必須同意。詳見「毛先生與房客」分頁。</td><td>多人直接稱呼；自述 78 歲<button class="ts" type="button">5:39</button></td></tr>
+        <tr><td class="nowrap">2號4樓</td><td><b>許太太</b>、許先生</td><td>許太太是室內設計師<button class="ts" type="button">34:29</button>，自行研讀新北市都更處的範本。許先生說新房子價值提高兩三倍<button class="ts" type="button">1:00:45</button>。</td><td>支持；負責彙整合約修改意見<button class="ts" type="button">36:47</button>。</td><td>劉先生問「您是許太太嘛」<button class="ts" type="button">35:07</button>；「2號4樓，許先生講」<button class="ts" type="button">1:00:23</button></td></tr>
+        <tr><td class="nowrap">4號1樓</td><td>姓名未提及</td><td>自住，沒有要轉賣<button class="ts" type="button">1:02:12</button>。</td><td>支持；「信託那個部分比較重要，其他大家一樣就好」。</td><td>點名「4號1樓」</td></tr>
+        <tr><td class="nowrap">4號4樓</td><td>姓名未提及</td><td>頂樓住戶，抱怨女兒牆快垮、頂樓陽台滲水、維修受不了<button class="ts" type="button">44:07</button><button class="ts" type="button">1:02:52</button>。</td><td>支持；附和楊先生「細節是後話，信託最重要」<button class="ts" type="button">56:55</button>。</td><td>點名時有人說「4號4樓是我」<button class="ts" type="button">8:57</button> <span class="tag guess">推定，也可能是 4號3樓家人</span></td></tr>
+        <tr><td class="nowrap">4號3樓</td><td>錄音者家</td><td>裝修好後被樓上漏水弄壞<button class="ts" type="button">1:04:08</button>。會後說「他們（毛先生）分 70 坪，我們才分 50 坪」<button class="ts" type="button">1:15:33</button>。</td><td>會中未見正式表態；會後語氣正面（「阿嬤要賺大錢了」<button class="ts" type="button">1:20:28</button>）。</td><td>你方確認</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="block">
+    <h2>外部人物</h2>
+    <div class="table-wrap"><table class="tbl-min">
+      <thead><tr><th>人物</th><th>角色</th><th>重點</th></tr></thead>
+      <tbody>
+        <tr><td><b>黃小姐</b></td><td>劉先生請的顧問（免費，私人交情）</td><td>建築業界資深，劉先生介紹「知名建商高層沒有人不認識她」、是「黃永宏大師最得意的副手」<button class="ts" type="button">15:29</button> <span class="tag guess">推定指建築師黃永洪</span>。三年前也來過。只待一小時，約 56 分時先離席<button class="ts" type="button">56:15</button>。</td></tr>
+        <tr><td><b>張董</b></td><td>劉先生請的顧問</td><td>劉先生 40 多年的老同學，「對我們夫妻有恩」<button class="ts" type="button">1:08:37</button>；熟悉新北房地產，已退休，每月仍管理近百間套房<button class="ts" type="button">15:59</button>。兩三年前也來過。</td></tr>
+        <tr><td><b>蔡經理</b></td><td>劉先生請的審約顧問（推定未到場）</td><td>專做都更，公司兩年前開始接都更案；帶著師傅逐條審查契約<button class="ts" type="button">16:22</button>。全名錄音聽作「蔡英麟」或「蔡元潔」 <span class="tag verify">待確認</span>。結論是「沒有重大需要改，但有些小部分」<button class="ts" type="button">29:46</button>。</td></tr>
+        <tr><td>蔡經理的師傅</td><td>都更從業者</td><td>「我們這個基地的條件沒有資格選建商」，因為位置很裡面、基地又不大<button class="ts" type="button">16:49</button>。</td></tr>
+        <tr><td><b>林專員</b></td><td>偉鉅窗口</td><td>回覆劉先生：契約「不太可能改」，因為一向都拿這一份去簽；除非有重大爭議、影響權益<button class="ts" type="button">24:08</button><button class="ts" type="button">25:38</button>。</td></tr>
+        <tr><td>「朱朱」 <span class="tag guess">人名不確定</span></td><td>推定為偉鉅方人員</td><td>曾說可以用「備註」或「附屬」方式補充<button class="ts" type="button">24:33</button>。</td></tr>
+        <tr><td>宏國建設 趙經理</td><td>孫先生請教的顧問</td><td>意見與黃小姐「一模一樣」：偉鉅已經買下的情況下，不跟他合作以後就沒機會了<button class="ts" type="button">13:07</button>。</td></tr>
+        <tr><td><b>房客</b>（毛先生的好友）</td><td>2號3樓承租人</td><td>中研院研究員<button class="ts" type="button">42:22</button>；錄音中出現「Terry」與「吳小姐」兩個稱呼 <span class="tag guess">推定為房客本人或同住者</span>。</td></tr>
+        <tr><td>林公公、林婆婆</td><td>毛先生的老姨丈、老姨婆</td><td>房子原本的主人 <span class="tag guess">推定</span>；從小看劉先生長大<button class="ts" type="button">52:50</button>。</td></tr>
+        <tr><td>林小姐／陳小姐 <span class="tag guess">姓氏不確定</span></td><td>鄰近獨棟屋主</td><td>正在自行改建，為了讓母親在世時看到新房子；本身也是做建築的。黃小姐認為「最笨」，應該拆掉合進來<button class="ts" type="button">58:38</button>。</td></tr>
+      </tbody>
+    </table></div>
+    <p class="small">說明：錄音由手機在現場錄製，多人同時說話。講者身分是先用聲紋分群，再依稱呼、自我介紹、點名順序與發言內容人工判定；同一聲紋群組常混到不同人，所以本報告以內容判定為準。</p>
+  </div>
+</section>
+
+<!-- ============ 合約條文 ============ -->
+<section class="panel" id="contract" role="tabpanel" aria-labelledby="t-contract" hidden>
+  <div class="block">
+    <h2>合約修改意見</h2>
+    <p class="lead">會中主要由許太太提出（29:33–37:50）。她拿偉鉅契約對照新北市都更處律師演講用的參考範本，範本把該注意的地方用紅字標出，她也已經把範本貼在住戶群組<button class="ts" type="button">30:57</button><button class="ts" type="button">37:13</button>。會後已把其中 5 項標在契約截圖上（下表「書面提問」欄），請林先生轉問偉鉅老闆。</p>
+    <div class="legend-inline">
+      <span><span class="tag ok">原文已確認</span>契約截圖可見原文</span>
+      <span><span class="tag key">已送偉鉅</span>列入 5 項書面提問，待回覆</span>
+      <span><span class="tag verify">待書面比對</span>截圖沒有涵蓋，仍需翻契約</span>
+    </div>
+  </div>
+  <div class="table-wrap"><table class="tbl-min" style="min-width:980px">
+    <thead><tr><th>#</th><th>議題</th><th>契約原文（截圖）或錄音轉述</th><th>建議修改</th><th>書面提問</th><th>錄音</th><th>狀態</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><b>信託標的漏寫「資金」</b><br><span class="small">第二項（錄音說在第 6 頁）</span></td><td><b>原文：</b>「甲、乙雙方為確保本大樓之興建及參與更新土地所有權人之權益，同意將更新土地及起造人信託於乙方指定之金融機構（下稱信託金融機構）及建築經理公司（下稱建經公司）。」</td><td>在「起造人」後插入「之興建資金」，土地與建商資金一起信託。範本寫法：「甲方不動產及乙方資金交由信託專戶」</td><td>問題 1</td><td><button class="ts" type="button">29:57</button><button class="ts" type="button">30:57</button></td><td><span class="tag ok">原文已確認</span> <span class="tag key">已送偉鉅</span></td></tr>
+      <tr><td>2</td><td><b>信託時點太早</b><br><span class="small">第二項第（一）款</span></td><td><b>原文：</b>「甲方同意於簽訂本契約後，經乙方書面通知 15 日內與信託金融機構簽訂信託契約書或辦理變更信託金融機構，就其提供更新土地及其上原有建物所有權辦理信託登記予信託金融機構，信託期間非經甲、乙雙方與信託金融機構共同協議者，任何一方及其繼受人均不得任意終止、解除或變更信託契約。」</td><td>書面提問寫「本契約」<b>改為「事業計畫報核後」</b>。錄音中許太太說的是「事業計畫核定後」，兩者時點不同（報核是送件，核定是核准）。前一間建商合約的寫法是「所有權人超過 90% 簽約時」</td><td>問題 2</td><td><button class="ts" type="button">31:44</button><button class="ts" type="button">36:30</button></td><td><span class="tag ok">原文已確認</span> <span class="tag key">已送偉鉅</span></td></tr>
+      <tr><td>3</td><td><b>信託費用</b></td><td>截圖段落未寫信託費用由誰負擔</td><td>由乙方（偉鉅）負擔</td><td>問題 3「信託費用誰負擔？」</td><td><button class="ts" type="button">36:30</button></td><td><span class="tag key">已送偉鉅</span></td></tr>
+      <tr><td>4</td><td><b>不得拿地主土地融資或設定抵押</b></td><td>截圖段落未見此限制</td><td>附註寫明：不得以甲方土地辦理融資貸款或設定抵押</td><td>問題 4（備註）</td><td><button class="ts" type="button">32:37</button></td><td><span class="tag key">已送偉鉅</span></td></tr>
+      <tr><td>5</td><td><b>天然瓦斯內外管費用</b><br><span class="small">建材設備表（錄音說在第 29 頁）</span></td><td><b>原文：</b>「由本公司統一申請天然瓦斯外管線。」沒寫費用由誰付</td><td>內外管線費用由乙方負擔；各戶掛錶申裝費由甲方（住戶）負擔</td><td>問題 5</td><td><button class="ts" type="button">33:52</button><button class="ts" type="button">35:34</button></td><td><span class="tag ok">原文已確認</span> <span class="tag key">已送偉鉅</span></td></tr>
+      <tr><td>6</td><td><b>既有房貸要代償轉貸</b> <span class="tag key">新發現</span><br><span class="small">第二項第（二）款</span></td><td><b>原文：</b>「甲方就其提供更新土地及其上原有建物如有設定抵押權辦理貸款者，應無條件配合信託金融機構辦理代償轉貸，貸款利息及轉貸之相關全部費用由甲方自行負擔外，並不得於原抵押借款餘額外，再增加貸款金額。」</td><td>會中沒有討論。有房貸的戶要知道：信託時房貸會轉到信託銀行，利息和轉貸費用自付，而且不能增貸</td><td>未列入</td><td>—</td><td><span class="tag ok">原文已確認</span></td></tr>
+      <tr><td>7</td><td><b>契約期限</b></td><td>錄音聽作「360 日內，等於說三年內，如果他沒談成就解約」</td><td>許太太認為有期限是合理的；期限內沒達到八成，到時候再看要續約或重談</td><td>未列入</td><td><button class="ts" type="button">33:18</button></td><td><span class="tag verify">360 日或 36 個月待比對</span></td></tr>
+      <tr><td>8</td><td>停車場預留電動車充電設備</td><td>截圖中停車場設備可見：交通號誌、防撞警示漆、廣角反射鏡、地坪 Epoxy 或柏油防滑、自動快速捲門與防拷貝遙控器，<b>未見充電設備</b>（清單後段未入鏡）</td><td>用「增修」方式加入（三年前那份合約討論過，劉先生已轉傳群組）</td><td>未列入</td><td><button class="ts" type="button">26:11</button></td><td><span class="tag guess">多數認為次要</span></td></tr>
+      <tr><td>9</td><td>垃圾收集處設廚餘空間</td><td>錄音：沒有規劃</td><td>同上。黃小姐：法規沒要求，就算現在的大樓也多半不做，日後管委會再找地方即可</td><td>未列入</td><td><button class="ts" type="button">26:21</button><button class="ts" type="button">28:11</button></td><td><span class="tag guess">多數認為次要</span></td></tr>
+      <tr><td class="nowrap">10</td><td><b>案子中止時產權如何復原</b></td><td>錄音：未見相關條款</td><td>萬一因故無法繼續，地主的產權要能回復，需有救濟或補充條款</td><td>未列入</td><td><button class="ts" type="button">54:35</button></td><td><span class="tag verify">待書面比對</span></td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">另一個錄音中沒提到的細節：信託對象除了「乙方指定之金融機構」，還包括「建築經理公司」（建經公司），也就是由建經公司參與管理興建資金與進度。是哪一家建經公司 <span class="tag verify">待書面比對</span>。</p>
+
+  <div class="block">
+    <h2>對照：前一間建商的合約</h2>
+    <p class="lead">取自前一間簽約建商的合約第 6／19 頁（推定即會前閒談提到「之前簽約的那一家」<button class="ts" type="button">10:50</button>）。偉鉅契約對應條文大多不在這次的截圖裡，所以下表「偉鉅契約」欄有幾格只能標待比對。</p>
+  </div>
+  <div class="table-wrap"><table class="tbl-min" style="min-width:900px">
+    <thead><tr><th>議題</th><th>偉鉅契約</th><th>前一間合約</th><th>對我們的意義</th></tr></thead>
+    <tbody>
+      <tr><td><b>土地何時信託</b></td><td>簽約後，經乙方書面通知 15 日內</td><td><b>第玖條：</b>「甲方同意都市更新計畫範圍內所有權人超過 90% 簽約時，將本約合作興建房屋之上開所有土地，信託於乙方指定之金融或信託機構。」</td><td>前一間要等整個更新範圍超過九成簽約才信託，比偉鉅版本晚很多，也比住戶提案的「事業計畫報核後」更明確。可作為要求延後信託的前例</td></tr>
+      <tr><td><b>出租等權利由誰清理</b></td><td>截圖未涵蓋 <span class="tag verify">待比對</span></td><td><b>第捌條一：</b>土地如有出租、繼承、他項權利設定、地上物糾紛或第三人主張權利，「概由甲方於本合建契約生效後於交付銀行信託或權利變換發布前負責清理，並得由乙方協助辦理，其所需之一切費用由甲方自行負擔」</td><td>直接關係毛先生：若偉鉅契約有同樣條款，清理 20 年租約的責任和費用都在毛先生身上，而且要在信託前完成</td></tr>
+      <tr><td><b>信託後能不能出租、出售</b></td><td>截圖未涵蓋 <span class="tag verify">待比對</span></td><td><b>第捌條二：</b>「正式合約成立信託完成起至契約存續期間，甲方非經乙方之同意不得將土地出租、出售、設定抵押及其他負擔或自行建築或同意他人建築，否則以違約論」，依第壹拾參條賠償</td><td>信託後地主自行出租、出售都要建商同意。若偉鉅也這樣寫，大家提的「改建後繼續租給房客」需要先跟偉鉅確認</td></tr>
+      <tr><td>測量費用</td><td>截圖未涵蓋 <span class="tag verify">待比對</span></td><td><b>第捌條三：</b>建築指示線、鑑界、複丈由乙方申請，費用由乙方負擔</td><td>可作為對照</td></tr>
+      <tr><td>拆除與點交</td><td>截圖未涵蓋 <span class="tag verify">待比對</span></td><td><b>第捌條四、五：</b>簽約時提供權利證件與【拆除同意書】；接獲通知後把房屋與增建全部騰空點交，屋內遺留物視為廢棄物，不得請求賠償</td><td>增建（例如頂加）也要一起騰空；搬遷前要把東西清乾淨</td></tr>
+      <tr><td>交屋驗收</td><td>截圖未涵蓋 <span class="tag verify">待比對</span></td><td><b>第柒條：</b>取得使照、接通水電後書面通知，30 日內驗收；缺失以一次提出為限，乙方一個月內改善；公設於管委會成立後 3 個月內點交；驗收後就算沒遷入，水電瓦斯與管理費仍由甲方負擔</td><td>可作為對照</td></tr>
+    </tbody>
+  </table></div>
+  <p class="small">整理者備註：前一間合約第捌條一提到「交付銀行信託或<b>權利變換</b>發布前」，代表那份合約考慮過走權利變換。這和黃小姐描述的「三家估價、等價對接」機制一致；偉鉅這份走哪一種方式 <span class="tag verify">待書面比對</span>。</p>
+
+  <div class="block">
+    <h2>書面資料原圖</h2>
+    <div class="docs">
+      <figure class="doc"><a href="assets/urban_renewal_briefing_20261025/contract-trust-clause.jpg" target="_blank" rel="noopener"><img src="assets/urban_renewal_briefing_20261025/contract-trust-clause.jpg" alt="偉鉅契約信託條文截圖，紅字標註問題 1 到 4" loading="lazy"></a><figcaption>偉鉅契約：信託條文（第二項），紅字為問題 1–4<br><span class="small mono">S__62627867_0.jpg</span></figcaption></figure>
+      <figure class="doc"><a href="assets/urban_renewal_briefing_20261025/contract-equipment-table.jpg" target="_blank" rel="noopener"><img src="assets/urban_renewal_briefing_20261025/contract-equipment-table.jpg" alt="偉鉅契約建材設備表截圖，紅框標註瓦斯外管線" loading="lazy"></a><figcaption>偉鉅契約：建材設備表，紅框為問題 5<br><span class="small mono">S__62627868_0.jpg</span></figcaption></figure>
+      <figure class="doc"><a href="assets/urban_renewal_briefing_20261025/prev-contract-p6.jpg" target="_blank" rel="noopener"><img src="assets/urban_renewal_briefing_20261025/prev-contract-p6.jpg" alt="前一間建商合約第 6 頁，第柒到第玖條" loading="lazy"></a><figcaption>前一間建商合約第 6／19 頁（第柒條至第玖條），螢光筆為 90% 信託條件<br><span class="small mono">DF3BD67A-…0136.jpg</span></figcaption></figure>
+    </div>
+    <p class="small">點圖片可開啟原圖。圖片需與這份 HTML 放在同一個資料夾才看得到。</p>
+  </div>
+
+  <div class="cols-2">
+    <div class="card block">
+      <h3>許太太的實例：瓦斯管費十幾萬</h3>
+      <p>她做室內設計時遇過預售屋交屋，建商要買方付瓦斯管費十幾萬；後來查才知道是當初合約沒寫誰付<button class="ts" type="button">34:29</button>。她強調「不是找他們麻煩」，只是寫清楚避免以後糾紛<button class="ts" type="button">35:14</button>。</p>
+    </div>
+    <div class="card block">
+      <h3>許家親戚的實例：沒信託損失一千多萬</h3>
+      <p>去年有親戚的合建案沒做信託，建商一直拿去貸款；親戚後來想把房子和權利要回來，損失一千多萬才拿回，透天也沒蓋成<button class="ts" type="button">1:01:36</button>。這是大家把「信託」列為第一優先的直接原因。</p>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>誰支持哪一項</h2>
+    <p class="small">依錄音中明確表態整理；空白代表沒有表態。滑過格子可看時間。</p>
+    <div class="table-wrap"><table class="tbl-min" id="stance-table" style="min-width:880px"></table></div>
+    <div class="legend-inline">
+      <span><span class="cell c-prop">提出</span></span>
+      <span><span class="cell c-sup">支持</span></span>
+      <span><span class="cell c-minor">認為次要</span></span>
+    </div>
+  </div>
+
+  <div class="block">
+    <h2>要不要爭取改約：兩種看法</h2>
+    <div class="cols-2">
+      <div class="card block">
+        <h3>挑重點、用增修補充</h3>
+        <ul class="clean">
+          <li><b>劉先生：</b>打仗靠戰略不靠戰術；建商也是地主，條文對他有利也等於對地主有利；把三年前討論過的設備用增修加上，對方較可能同意<button class="ts" type="button">25:19</button>。</li>
+          <li><b>林專員（轉述）：</b>除非有重大爭議、影響權益，否則不太可能改，因為大家簽的是同一份<button class="ts" type="button">24:08</button>。</li>
+          <li><b>「朱朱」（轉述）：</b>可以用備註或附屬方式處理<button class="ts" type="button">24:33</button>。</li>
+          <li><b>楊先生：</b>前面超過一半的住戶已經簽同一版本，我們再加條件就變成條件不同；要提，就從「這樣能幫你賣更好的價格」的角度說<button class="ts" type="button">55:34</button>。</li>
+        </ul>
+      </div>
+      <div class="card block">
+        <h3>合約不必糾結，看對價與時程</h3>
+        <ul class="clean">
+          <li><b>黃小姐：</b>每個案子的合約都很自私，改不改對最後成果差異不大；建商是服務業，之後還是會討論；大家該在意的是自己房子換到的對價<button class="ts" type="button">26:55</button>。</li>
+          <li><b>黃小姐：</b>垃圾、停車等法令都有規定，合法才蓋得出來<button class="ts" type="button">27:49</button>；真正影響大的是同意比例與審議時間<button class="ts" type="button">28:35</button>。</li>
+          <li><b>4號1樓：</b>建商自己也要賣，設備不會做太差；合約可以就可以，大家一樣就好<button class="ts" type="button">1:02:12</button>。</li>
+        </ul>
+      </div>
+    </div>
+    <p class="small">結論：信託相關條文（上表 1–4）是全體共識，交由許太太整理；設備類（8、9）劉先生交給許太太決定要不要加<button class="ts" type="button">56:42</button>。會後送出的 5 項提問正是信託四項加瓦斯管；期限、設備與產權復原這次沒有列入。</p>
+  </div>
+</section>
+
+<!-- ============ 毛先生與房客 ============ -->
+<section class="panel" id="mao" role="tabpanel" aria-labelledby="t-mao" hidden>
+  <div class="block">
+    <h2>2號3樓：唯一待溝通的一戶</h2>
+    <p class="lead">毛先生本人不反對都更，也說希望圓滿解決<button class="ts" type="button">45:28</button>。卡住的是他對房客的承諾：房客是他「非常要好的朋友」，自費整修、簽了長約，他認為道義上必須由房客自己同意，「不是我來做決定」<button class="ts" type="button">6:26</button>。</p>
+  </div>
+  <div class="stats">
+    <div class="stat"><span class="label">房客自費整修</span><span class="value">270<small>萬</small></span><span class="sub"><button class="ts" type="button">4:49</button>劉先生原以為「兩百多萬」</span></div>
+    <div class="stat"><span class="label">月租</span><span class="value">1<small>萬</small></span><span class="sub"><button class="ts" type="button">39:09</button>「你們會嚇一跳」</span></div>
+    <div class="stat"><span class="label">租約</span><span class="value">20<small>年</small></span><span class="sub"><button class="ts" type="button">5:39</button>律師公證<span class="tag verify">起訖日待查</span></span></div>
+    <div class="stat"><span class="label">房客已住</span><span class="value">約 10<small>年</small></span><span class="sub"><button class="ts" type="button">1:19:45</button>會後閒聊，另一說 12 年<span class="tag guess">推定</span></span></div>
+    <div class="stat"><span class="label">毛先生年紀</span><span class="value">78<small>歲</small></span><span class="sub"><button class="ts" type="button">5:39</button>「20 年後我一定掛了」</span></div>
+  </div>
+
+  <div class="cols-2">
+    <div class="card block">
+      <h3>毛先生的說法</h3>
+      <ul class="clean">
+        <li>房子是老姨丈、老姨婆（林公公、林婆婆）留給他的，馬上賣掉對不起他們，所以不賣<button class="ts" type="button">37:55</button><button class="ts" type="button">47:03</button>；提到「贈與就有 70 萬」<button class="ts" type="button">47:56</button> <span class="tag guess">推定指贈與相關稅費</span>。</li>
+        <li>房子超過 50 年，好友想租，他要求一定要整修；好友要求租約長一點，最後花了 270 萬，他就讓對方自己開價，對方開 1 萬<button class="ts" type="button">4:49</button>。他還交代不要跟鄰居講，免得破壞行情<button class="ts" type="button">39:09</button>。</li>
+        <li>簽 20 年並找律師公證，是怕自己走了、子女不認帳<button class="ts" type="button">40:28</button>。租約到哪一年他記不得，要看合約<button class="ts" type="button">40:57</button>。</li>
+        <li>錢對他沒有意義，「增加多少財富是虛無的」；在乎的是「老毛這個人還不錯」的名聲<button class="ts" type="button">43:07</button>。</li>
+        <li>他說房子「非常非常堅固」，裝修師傅看過這麼多老房子都這樣說<button class="ts" type="button">43:55</button>。</li>
+        <li>強調自己是社運出身，不怕強拆：「80% 同意你就可以拆掉？沒有人敢拆我的」<button class="ts" type="button">49:24</button>。</li>
+        <li>帶女兒、女婿來聽，因為自己「完全沒進入狀況」<button class="ts" type="button">7:00</button><button class="ts" type="button">37:50</button>。子女都有自己的房子<button class="ts" type="button">1:09:45</button>。</li>
+      </ul>
+    </div>
+    <div class="card block">
+      <h3>大家提出的解方</h3>
+      <div class="table-wrap" style="border:0"><table>
+        <thead><tr><th>提議</th><th>誰</th><th>毛先生反應</th></tr></thead>
+        <tbody>
+          <tr><td>鄰居湊錢或劉先生個人出 200 萬，把裝修費還給房客<button class="ts" type="button">3:29</button><button class="ts" type="button">4:26</button></td><td>劉先生</td><td>拒絕：「不是用那個錢」，要對方同意</td></tr>
+          <tr><td>現在更新案很多，房客應能體諒<button class="ts" type="button">5:25</button></td><td>黃小姐</td><td>「你講可以體諒」不算數</td></tr>
+          <tr><td>新房子價值高，就算坪數少 20% 也賺；案子成了就有籌碼和資源處理 270 萬<button class="ts" type="button">41:39</button><button class="ts" type="button">42:56</button></td><td>楊先生</td><td>錢對他沒意義</td></tr>
+          <tr><td>建商有房租補助；改建後<b>繼續租給他</b>，等於守住承諾<button class="ts" type="button">45:47</button><button class="ts" type="button">50:47</button></td><td>楊先生</td><td>「這個當然要租他」</td></tr>
+          <tr><td>分回 72 坪可選兩三間（有規劃小坪數、中坪數），留一間給房客<button class="ts" type="button">46:43</button></td><td>黃小姐</td><td>房子不能賣</td></tr>
+          <tr><td>八戶裡有位大哥附近有房子，可讓房客就近過渡 2–5 年<button class="ts" type="button">52:19</button></td><td>楊先生 <span class="tag guess">推定</span></td><td>未明確回應</td></tr>
+          <tr><td>用建商補助加差額補貼，讓房客過渡期租更舒適的房子<button class="ts" type="button">1:19:20</button></td><td>會後轉述</td><td>—</td></tr>
+        </tbody>
+      </table></div>
+    </div>
+  </div>
+
+  <div class="card block">
+    <h3>房客租約與都更時程重疊</h3>
+    <p class="small">以 2026 年為起點。租約剩約 10 年來自會後閒聊；拆除與完工時間取自黃小姐「最快四五年才會拆，完工大概八九年、十年以後」<button class="ts" type="button">7:39</button>。淺色段是區間的不確定部分。</p>
+    <div class="viz-legend" id="lease-legend"></div>
+    <div class="chart-scroll"><div class="chart" id="lease-chart"></div></div>
+    <p>整理者備註：依這兩個說法，房客租約剩下的時間幾乎涵蓋整段拆除到完工，所以「改建後繼續租給他」加上過渡期安置，是能同時守住毛先生承諾的方向。租約起訖日以公證租約為準 <span class="tag verify">待書面比對</span>。</p>
+  </div>
+
+  <div class="card block">
+    <h3>書面資料帶來的新考量 <span class="tag ok">會後更新</span></h3>
+    <p>前一間建商的合約有兩條跟房客問題直接相關（偉鉅契約是否相同，截圖沒有涵蓋 <span class="tag verify">待比對</span>）：</p>
+    <ul class="clean">
+      <li><b>第捌條一：</b>土地上的出租等權利，由地主在交付信託前負責清理，費用自負，建商可以協助。照這個寫法，房客的 20 年租約要由毛先生在信託前處理好，處理費用也算他的。</li>
+      <li><b>第捌條二：</b>信託完成後到契約結束前，地主出租、出售都要建商同意。大家提的「改建後繼續租給他」，需要先確認偉鉅契約是否有同樣限制，以及這個限制到交屋後是否還有效。</li>
+      <li>偉鉅原文是簽約後 15 日內就要信託。如果偉鉅也有類似的清理條款，信託時點又沒改，毛先生一簽約就會碰到租約清理的時間壓力；改成報核後或九成簽約後才信託，可以多出溝通時間。</li>
+    </ul>
+  </div>
+
+  <div class="card block">
+    <h3>會議上的決定</h3>
+    <ul class="clean">
+      <li>毛先生上次給大家「兩個禮拜」等他確認<button class="ts" type="button">1:05:49</button>。</li>
+      <li>毛先生同意先把今天的情況告訴房客<button class="ts" type="button">1:09:10</button>，劉先生建議他和楊先生一起去<button class="ts" type="button">1:09:27</button>。</li>
+      <li>楊先生、孫先生抽空跟房客談<button class="ts" type="button">1:10:20</button>；有人表示「今天晚上就跟他聯絡」，說住戶代表想好好跟他談，「他還欠我一杯咖啡」<button class="ts" type="button">1:10:38</button>。</li>
+      <li>劉先生：「我現在發現他（房客）才是整個都更案能不能成最關鍵的」<button class="ts" type="button">48:56</button>。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 各戶發言 ============ -->
+<section class="panel" id="houses" role="tabpanel" aria-labelledby="t-houses" hidden>
+  <div class="block">
+    <h2>逐戶發言（依會中順序）</h2>
+    <p class="lead">劉先生從 2號1樓開始請每戶表達意見<button class="ts" type="button">54:31</button>，中間黃小姐先離席。</p>
+  </div>
+  <div class="cols-2">
+    <div class="card house">
+      <div class="head"><span class="unitno">2號1樓</span><h3>楊先生</h3><button class="ts" type="button">54:35</button></div>
+      <ul class="clean">
+        <li>許太太注意到法律細節「很棒」。他擔心的是萬一案子做不下去，地主產權能不能復原，要有救濟或補充方式。</li>
+        <li>電動車位、廚餘可以想，但前面超過一半住戶已簽同一版本，再提會變成條件不同；要提就從「增加這些能幫你賣更好價格」去說。</li>
+        <li>太細的建材要求對促成案子不一定有幫助。</li>
+      </ul>
+    </div>
+    <div class="card house">
+      <div class="head"><span class="unitno">4號4樓 <span class="tag guess">推定</span></span><h3>頂樓住戶</h3><button class="ts" type="button">56:55</button></div>
+      <ul class="clean">
+        <li>附和楊先生：這些都是小細節，大方向是把案子談成。</li>
+        <li>信託才是對大家很重要的部分。充電樁她也發現契約裡沒有，但那是後話，現在不需要糾結。</li>
+      </ul>
+    </div>
+    <div class="card house">
+      <div class="head"><span class="unitno">2號2樓</span><h3>孫先生</h3><button class="ts" type="button">57:52</button></div>
+      <ul class="clean"><li>沒有意見。毛先生的問題很容易解決，只要道義問題處理好就 OK。</li></ul>
+    </div>
+    <div class="card house">
+      <div class="head"><span class="unitno">2號3樓</span><h3>毛先生</h3><button class="ts" type="button">58:03</button></div>
+      <ul class="clean">
+        <li>沒有問題。只問了一件事：「這條巷子怎麼辦？」</li>
+        <li>回覆：巷子會改到基地最旁邊，巷子還在，只是位置移動（廢巷再改道）<button class="ts" type="button">58:09</button> <span class="tag verify">待規劃圖確認</span>。</li>
+      </ul>
+    </div>
+    <div class="card house">
+      <div class="head"><span class="unitno">2號4樓</span><h3>許先生（許太太已先發言）</h3><button class="ts" type="button">1:00:23</button></div>
+      <ul class="clean">
+        <li>房子很舊，盡量配合大家換新房，價值提高兩三倍。</li>
+        <li>有人接話：孫先生那邊「不只兩三倍，大概到四倍」<button class="ts" type="button">1:00:54</button> <span class="tag guess">推定指孫先生購入價與新屋價值的比</span>。</li>
+        <li>信託很重要，弄不好地被拿去抵押，最貴的就是這塊地<button class="ts" type="button">1:01:20</button>；接著舉了親戚沒信託損失一千多萬的例子。</li>
+      </ul>
+    </div>
+    <div class="card house">
+      <div class="head"><span class="unitno">4號1樓</span><h3>自住戶</h3><button class="ts" type="button">1:02:12</button></div>
+      <ul class="clean"><li>自己住，不會轉賣，沒什麼意見。建商自己也要賣，設備不會做太差。信託比較重要，其他大家一樣就好。</li></ul>
+    </div>
+    <div class="card house">
+      <div class="head"><span class="unitno">4號2樓</span><h3>劉先生</h3><button class="ts" type="button">1:02:43</button></div>
+      <ul class="clean"><li>「我是 4號2樓，我就跳過」（前面已發言過）。</li></ul>
+    </div>
+    <div class="card house">
+      <div class="head"><span class="unitno">4號4樓・4號3樓</span><h3>老屋現況</h3><button class="ts" type="button">1:02:52</button></div>
+      <ul class="clean">
+        <li>頂樓女兒牆整圈包了不鏽鋼，不包就快垮；頂樓陽台很容易滲水。</li>
+        <li>許太太：結構真的不好，「我自己做裝修的，我們四樓也花了好幾百萬」<button class="ts" type="button">1:03:20</button>。</li>
+        <li>請人上過屋頂修一次，女兒牆很矮，用力推好像會動；台灣地震又多<button class="ts" type="button">1:03:37</button>。</li>
+        <li>地板滲水會一路往下滲到樓下天花板；<b>4號3樓（我們）</b>剛裝修好就被樓上漏水弄壞<button class="ts" type="button">1:04:08</button>。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 案件背景與顧問 ============ -->
+<section class="panel" id="context" role="tabpanel" aria-labelledby="t-context" hidden>
+  <div class="cols-2">
+    <div class="card block">
+      <h3>基地條件</h3>
+      <ul class="clean">
+        <li>位置好，但在很小的巷子裡面<button class="ts" type="button">21:02</button>；沒有面前道路，自己做危老會很辛苦<button class="ts" type="button">12:56</button>。</li>
+        <li>師傅的說法：位置很裡面、基地不大，「沒有資格選建商」<button class="ts" type="button">16:49</button>。</li>
+        <li>本棟 8 戶在整個建地裡不到 50%<button class="ts" type="button">50:26</button>；前面超過一半的住戶已經跟偉鉅簽了同一版本<button class="ts" type="button">55:34</button> <span class="tag verify">待書面比對</span>。</li>
+        <li>偉鉅已經買進、成為地主，有話語權，比較容易整合<button class="ts" type="button">17:41</button>；孫先生轉述偉鉅上次的說法：要把「前面那一塊」解決並跟本棟合起來才有利潤<button class="ts" type="button">2:56</button>。</li>
+        <li>現有巷子會改到基地最旁邊<button class="ts" type="button">58:09</button>。鄰近一棟獨棟正在自行改建<button class="ts" type="button">58:38</button>。</li>
+      </ul>
+    </div>
+    <div class="card block">
+      <h3>過去經過</h3>
+      <ul class="clean">
+        <li>劉先生印象中，這一帶的整合大概有 5 次，都沒成功<button class="ts" type="button">14:31</button>。</li>
+        <li>三年前有一次：黃小姐、張董當時也來過；那份合約討論過電動車充電、廚餘空間等設備，劉先生這次把內容轉傳給大家<button class="ts" type="button">12:37</button><button class="ts" type="button">26:21</button>。</li>
+        <li>會前閒談提到「之前簽約的那一家」的分回條件 <span class="tag guess">錄音不清</span><button class="ts" type="button">10:50</button>。前一間建商合約的第 6／19 頁已取得，要到所有權人超過 90% 簽約才信託，見「合約條文」分頁。</li>
+        <li>偉鉅之前來說明過一次，當時有住戶沒到<button class="ts" type="button">2:56</button>。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card block">
+    <h3>同意門檻：張董與黃小姐的論點</h3>
+    <p>張董：都更不需要百分之百同意，「至少要八成以上才過，已經比修憲門檻還要高很多」<button class="ts" type="button">22:28</button>。黃小姐：法律上不需要 100%，但有沒有 100% 同意，進都更委員會審查的時間完全是兩回事；公務員不願意強制拆別人的家，所以實際通過的幾乎都是 100%<button class="ts" type="button">28:35</button>。</p>
+    <div class="viz-legend" id="consent-legend"></div>
+    <div class="chart" id="consent-chart"></div>
+    <div class="table-wrap"><table id="consent-table"><thead><tr><th>項目</th><th>比例</th><th>說明</th></tr></thead><tbody></tbody></table></div>
+    <p class="small">整理者備註：「八成」推定對應都市更新條例第 37 條「自行劃定更新單元」的事業計畫門檻（私有土地與合法建物所有權人數、面積均超過 4/5）；本案適用哪一種程序 <span class="tag verify">待書面比對</span>。楊先生說的「7 戶已超過 80%」只算本棟 8 戶，法定比例要以整個更新單元計算。修憲門檻 56.25% 是立委 3/4 出席乘以出席 3/4 同意的換算，僅供對照張董的說法。</p>
+  </div>
+
+  <div class="cols-2">
+    <div class="card block">
+      <h3>審議時程</h3>
+      <ul class="clean">
+        <li>就算只有一戶不同意，超過八成也能送事業計畫，最後會走強制；但最快也要四五年才會拆，完工大概八九年、十年以後<button class="ts" type="button">7:23</button>。</li>
+        <li>台北市有「168」：100% 同意的案子要求 16 個月完成審議<button class="ts" type="button">29:19</button>。</li>
+        <li>新北市比較有魄力，比較敢拆<button class="ts" type="button">29:30</button>；但毛先生表示「沒有人敢拆我的」<button class="ts" type="button">49:24</button>。</li>
+      </ul>
+    </div>
+    <div class="card block">
+      <h3>價值與分配</h3>
+      <ul class="clean">
+        <li>房子變成一個數字、新房子也是一個數字，等價對接；由三家不同的估價公司進來估，是公平機制<button class="ts" type="button">18:50</button>。</li>
+        <li>張董估本案潛在利益有「幾千萬」<button class="ts" type="button">20:23</button>。會後閒聊說「我們這幾家有五六千萬的東西」<button class="ts" type="button">1:19:03</button>。</li>
+        <li>許先生：價值提高兩三倍；孫先生那邊推定到四倍<button class="ts" type="button">1:00:45</button>。</li>
+        <li>更新後除了增值，稅率也會差很多<button class="ts" type="button">47:51</button>。</li>
+      </ul>
+      <p class="small">整理者備註：黃小姐描述的「三家估價、等價對接」是權利變換的做法，而本案是合建契約；分配究竟依契約約定還是權變估價 <span class="tag verify">待書面比對</span>。</p>
+    </div>
+  </div>
+
+  <div class="card block">
+    <h3>錄音中出現的分回坪數</h3>
+    <p class="small">三個數字的講者與脈絡都不完整，只能當作線索，實際分回條件以契約為準 <span class="tag verify">待書面比對</span>。</p>
+    <div class="chart" id="ping-chart"></div>
+    <div class="table-wrap"><table id="ping-table"><thead><tr><th>對象</th><th>坪數</th><th>出處</th><th>可信度</th></tr></thead><tbody></tbody></table></div>
+    <p class="small">兩邊差距的原因（原有面積、土地持分或其他條件）錄音中沒有說明。</p>
+  </div>
+
+  <div class="block">
+    <h2>顧問觀點</h2>
+    <div class="cols-2">
+      <div class="card block">
+        <h3>黃小姐</h3><span class="small">17:41–19:30、26:55–29:33，以及勸說段</span>
+        <ul class="clean">
+          <li>先恭喜大家：偉鉅已經是地主，加上現在時機成熟，「有些人已經坐不住，主動找人來幫他都更」<button class="ts" type="button">17:41</button>。</li>
+          <li>接下來會面臨談條件和選屋，這些機制都很成熟<button class="ts" type="button">18:25</button>。</li>
+          <li>更新施行快 20 年，約定都綁很死，要騙人用更新太辛苦，門檻很高<button class="ts" type="button">12:07</button>。</li>
+          <li>三年前她就說過：不跟就得自己花錢找設計師、一家一家拜託人；目前最好的位置就是這次<button class="ts" type="button">12:37</button>。</li>
+          <li>老房子的問題是結構，不是錢；裡面裝修了，結構不穩還是問題<button class="ts" type="button">43:41</button>。</li>
+          <li>社會上反對更新的人會被說不道德，現在比較容易說服<button class="ts" type="button">45:02</button>。</li>
+          <li>開車去接她的路上她說：隔壁獨棟自己蓋「最笨」，應該拆掉合進來（劉先生轉述）<button class="ts" type="button">58:38</button>。</li>
+        </ul>
+      </div>
+      <div class="card block">
+        <h3>張董</h3><span class="small">19:36–23:15</span>
+        <ul class="clean">
+          <li>兩三年前也來過，但沒成。以投資經驗看，這次成功機會很大<button class="ts" type="button">19:36</button>。</li>
+          <li>「一案都更，勝過三十年流血流汗」<button class="ts" type="button">19:59</button>。</li>
+          <li>有風險，但利潤大，估潛在利益幾千萬；他很羨慕大家，自己手上的物件沒有建商來談過<button class="ts" type="button">20:12</button><button class="ts" type="button">20:29</button>。</li>
+          <li>建商一再來敲門，代表位置有特殊性；缺點是巷子小。錯過要等 20–30 年，到時有些人已經不在<button class="ts" type="button">21:02</button><button class="ts" type="button">21:32</button>。</li>
+          <li>不花一毛錢換大間；也可以變現再投資，「買法拉利都買得起」<button class="ts" type="button">21:46</button>。</li>
+          <li>被騙的可能不能排除，但很小，是值得承受的小風險<button class="ts" type="button">22:06</button>。</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 下一步與待確認 ============ -->
+<section class="panel" id="next" role="tabpanel" aria-labelledby="t-next" hidden>
+  <div class="block">
+    <h2>會議分工</h2>
+    <div class="table-wrap"><table class="tbl-min">
+      <thead><tr><th>工作</th><th>負責</th><th>做法</th><th>時間</th></tr></thead>
+      <tbody>
+        <tr><td><b>整理合約修改條文</b><br><span class="tag ok">已送出</span></td><td>許太太（許先生協助）</td><td>把修改意見寫具體，先貼住戶群組讓大家確認，再貼到與建商的群組，請業務轉告老闆；劉先生建議請林專員直接跟許太太談。<b>會後進度：</b>已整理成 5 項標在契約截圖上，請林先生轉問偉鉅老闆，等待回覆</td><td><button class="ts" type="button">1:04:46</button><button class="ts" type="button">1:05:33</button><button class="ts" type="button">1:06:55</button></td></tr>
+        <tr><td><b>與毛先生的房客溝通</b></td><td>毛先生、楊先生、孫先生</td><td>毛先生先說明今天情況；楊先生、孫先生抽空一起談；有人表示當晚就聯絡</td><td><button class="ts" type="button">1:09:10</button><button class="ts" type="button">1:10:20</button></td></tr>
+        <tr><td><b>兩件事同時進行</b></td><td>全體</td><td>對建商說「7 戶同意、1 戶溝通中」，不用等毛先生；劉先生補充要強調毛先生並未反對</td><td><button class="ts" type="button">1:06:13</button><button class="ts" type="button">1:06:23</button></td></tr>
+        <tr><td>顧問謝禮</td><td>劉先生</td><td>有人提「免費的最貴」，談成後每戶出錢請顧問；劉先生說他私下處理，已準備一件從中國大陸藝術家買的藝術品送黃小姐</td><td><button class="ts" type="button">1:07:15</button><button class="ts" type="button">1:07:50</button></td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="cols-2">
+    <div class="card block">
+      <h3>契約比對進度</h3>
+      <h4>原文已確認（契約截圖）</h4>
+      <ul class="clean">
+        <li><span class="tag ok">確認</span> 信託條文只寫「更新土地及起造人信託」，沒有「資金」；信託對象另含建經公司。</li>
+        <li><span class="tag ok">確認</span> 信託時點：簽約後經乙方書面通知 15 日內。</li>
+        <li><span class="tag ok">確認</span> 瓦斯只寫「由本公司統一申請天然瓦斯外管線」，沒寫費用。</li>
+        <li><span class="tag ok">確認</span> 既有房貸須配合信託銀行代償轉貸，費用自付、不得增貸（會中未討論）。</li>
+      </ul>
+      <h4>已送偉鉅，等老闆回覆</h4>
+      <ol class="clean">
+        <li>「起造人」後插入「之興建資金」。</li>
+        <li>信託時點改為「事業計畫報核後」。</li>
+        <li>信託費用誰負擔。</li>
+        <li>備註：不得以甲方土地辦理融資貸款或設定抵押。</li>
+        <li>瓦斯內外管線費用誰負擔（掛錶申裝費由住戶負擔）。</li>
+      </ol>
+      <h4>仍需翻契約比對</h4>
+      <ol class="clean">
+        <li>契約期限：錄音聽到「360 日」，講者又說「等於三年」，確認實際寫法與未達八成時的處理。</li>
+        <li>出租等權利由誰清理、費用誰付（前一間合約第捌條一：地主自負）。</li>
+        <li>信託後出租、出售是否要建商同意（前一間合約第捌條二），以及限制到哪個時間點為止。</li>
+        <li>停車場充電設備、垃圾收集處與廚餘空間（設備表後段未入鏡）。</li>
+        <li>各戶分回坪數與計算依據（2號3樓約 70–72 坪、4號3樓約 50 坪的差異原因）。</li>
+        <li>案子中止或解約時，土地與產權如何返還。</li>
+        <li>拆遷期間的房租補助（楊先生提到建商有補助款）金額與期間。</li>
+        <li>建經公司是哪一家；偉鉅公司全名與窗口林專員全名；「朱朱」是誰。</li>
+        <li>兩段條文的實際頁碼（錄音說信託在第 6 頁、瓦斯在第 29 頁）。</li>
+      </ol>
+    </div>
+    <div class="card block">
+      <h3>其他待確認</h3>
+      <ul class="clean">
+        <li>毛先生房客的公證租約起訖日（毛先生自己也記不得）<button class="ts" type="button">40:57</button>。</li>
+        <li>本案走自劃更新單元還是其他程序，以及法定同意門檻怎麼算。</li>
+        <li>巷子改道的實際位置（規劃圖）<button class="ts" type="button">58:09</button>。</li>
+        <li>4號4樓住戶姓名，以及 8 戶中「附近有房子的另一位大哥」是誰<button class="ts" type="button">52:19</button>。</li>
+        <li>蔡經理全名與是否有書面審約意見。</li>
+        <li>新北市都更處範本（許太太已貼群組）可作為修約依據。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card block">
+    <h3>對 4號3樓的提醒</h3>
+    <ul class="clean">
+      <li>信託相關修改是全體共識，支持許太太的整理版本不會和任何人衝突。</li>
+      <li>如果偉鉅不接受「事業計畫報核後」才信託，前一間建商合約的「所有權人超過 90% 簽約才信託」可以拿來當前例爭取。</li>
+      <li>家裡若有房貸，依偉鉅條文，信託時要配合信託銀行代償轉貸，利息和轉貸費用自付，而且不能在原餘額外再增貸。</li>
+      <li>會後提到「我們 50 坪、毛先生 70 坪」，差異原因錄音裡沒有說；建議拿到契約後先確認自家的分回坪數與計算方式，再決定要不要提出。</li>
+      <li>樓上漏水造成的損壞，以及女兒牆、頂樓陽台的狀況，可以拍照留存，作為老屋現況的紀錄。</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 附錄 ============ -->
+<section class="panel" id="appendix" role="tabpanel" aria-labelledby="t-appendix" hidden>
+  <div class="block">
+    <h2>錯字校正對照</h2>
+    <p class="small">Whisper 原始轉錄常見的同音錯字，以及本報告採用的寫法。標「推定」的是依上下文判斷。</p>
+    <div class="table-wrap"><table class="tbl-min">
+      <thead><tr><th>錄音聽寫</th><th>本報告寫法</th><th>依據</th></tr></thead>
+      <tbody>
+        <tr><td>委屈</td><td><b>偉鉅</b></td><td>使用者提供；第三輪帶詞彙提示轉錄即正確</td></tr>
+        <tr><td>紅國、洪國、紅國建國建設</td><td><b>宏國建設</b></td><td>知名建商</td></tr>
+        <tr><td>趙敬禮</td><td><b>趙經理</b></td><td>多輪轉錄比對</td></tr>
+        <tr><td>黃永宏大師</td><td>黃永宏大師（推定為建築師<b>黃永洪</b>）</td><td>推定</td></tr>
+        <tr><td>偉羅、維羅</td><td><b>危老</b></td><td>上下文（沒有面前道路）</td></tr>
+        <tr><td>獨根、徒更、杜庚、路更、募根、入更、讀更</td><td><b>都更</b></td><td>上下文</td></tr>
+        <tr><td>吃到餓了、我是知道的</td><td><b>（我是）四號二（樓）</b></td><td>逐戶點名順序＋另一輪轉錄「我是4號2號嘛」</td></tr>
+        <tr><td>事後一樓、4號議員、一龍</td><td><b>4號1樓／一樓</b></td><td>點名順序</td></tr>
+        <tr><td>好奇、好氣</td><td><b>好額</b>（台語：有錢）</td><td>上下文「分七十坪」</td></tr>
+        <tr><td>Hockey</td><td><b>福氣</b></td><td>另一輪轉錄</td></tr>
+        <tr><td>有氣波</td><td><b>有魄力</b></td><td>上下文「比較敢拆」</td></tr>
+        <tr><td>信播、信徒</td><td><b>信託</b></td><td>上下文</td></tr>
+        <tr><td>以方／假方</td><td><b>乙方／甲方</b></td><td>契約用語</td></tr>
+        <tr><td>事業合併、事業合可、事業合格</td><td><b>事業（計畫）核定</b></td><td>都更程序用語</td></tr>
+        <tr><td>檢閱、檢約</td><td><b>解約</b></td><td>上下文</td></tr>
+        <tr><td>范蠅獨分、范林讀文、範圍讀本</td><td><b>範本</b></td><td>上下文</td></tr>
+        <tr><td>天堂瓦斯、網絲館、瓦斯館</td><td><b>天然瓦斯、瓦斯管</b></td><td>上下文</td></tr>
+        <tr><td>停死照、請死照、停時照</td><td><b>請使照</b>（使用執照）</td><td>建築程序</td></tr>
+        <tr><td>內設計師、聖誕設計師</td><td><b>室內設計師</b></td><td>上下文</td></tr>
+        <tr><td>選庫</td><td><b>選屋</b></td><td>上下文</td></tr>
+        <tr><td>物價公司</td><td><b>估價公司</b></td><td>上下文</td></tr>
+        <tr><td>統治</td><td><b>整合</b></td><td>上下文</td></tr>
+        <tr><td>收熱車、收熱設</td><td><b>垃圾收集處</b>（推定）</td><td>上下文「廚餘空間」</td></tr>
+        <tr><td>電動車布裝</td><td><b>電動車充電佈裝</b></td><td>上下文</td></tr>
+        <tr><td>徵休</td><td><b>增修</b></td><td>另一輪轉錄</td></tr>
+        <tr><td>線商、店商、建設商、介紹</td><td><b>建商</b></td><td>上下文</td></tr>
+        <tr><td>林青春園、林經商員、林金春月</td><td><b>林專員</b></td><td>前文已出現「林專員」</td></tr>
+        <tr><td>何小姐、余太太、局太太</td><td><b>許太太</b></td><td>上下文</td></tr>
+        <tr><td>楊欣、陽先生、馬先生</td><td><b>楊先生</b></td><td>上下文</td></tr>
+        <tr><td>王先生、黃先生、貓先生、毛巾、毛線</td><td><b>毛先生</b></td><td>上下文</td></tr>
+        <tr><td>江澤民旁邊、黃天生</td><td><b>張董（剛才強調…）</b>（推定）</td><td>上下文「他很羨慕我們」</td></tr>
+        <tr><td>據審來的、記審來的、聚散來的</td><td>（推定）<b>繼承／受贈來的</b></td><td>後文「贈與」</td></tr>
+        <tr><td>老銀帳、老銀婆</td><td><b>老姨丈、老姨婆</b></td><td>後文「我叫他姨夫」</td></tr>
+        <tr><td>打磨鐵軌</td><td><b>臥鐵軌</b></td><td>上下文</td></tr>
+        <tr><td>透陽台</td><td><b>頂樓陽台</b>（推定）</td><td>上下文</td></tr>
+        <tr><td>女兒長、女兒腔</td><td><b>女兒牆</b></td><td>上下文</td></tr>
+        <tr><td>清花牌、清化牌</td><td><b>天花板</b></td><td>上下文</td></tr>
+        <tr><td>偷天、透天的</td><td><b>透天</b></td><td>上下文</td></tr>
+        <tr><td>路風、路分</td><td><b>路沖</b>（推定）</td><td>上下文「買二樓的時候」</td></tr>
+        <tr><td>公社</td><td><b>公設</b></td><td>上下文</td></tr>
+        <tr><td>基友</td><td><b>基隆</b></td><td>降噪重轉</td></tr>
+        <tr><td>平、屏、別</td><td><b>坪</b></td><td>上下文</td></tr>
+        <tr><td>好靈基</td><td><b>好鄰居</b></td><td>上下文</td></tr>
+        <tr><td>慈善沒買</td><td>（推定）<b>偉鉅那邊沒買</b>，指偉鉅已買進的產權</td><td>三輪轉錄一致聽作「慈善」，原詞不明</td></tr>
+        <tr><td>朱朱、豬豬、珠珠</td><td>人名，未確認</td><td>—</td></tr>
+        <tr><td>蔡英麟、蔡元潔、蔡元傑</td><td>蔡經理（全名未確認）</td><td>—</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+
+  <div class="card block">
+    <h3>轉錄與比對方法</h3>
+    <ul class="clean">
+      <li>原檔 80 分 54 秒，手機現場錄音，多人同時說話。使用 Whisper large-v3 在本機轉錄三輪：A 輪（字級時間戳）、B 輪（預設設定，作為第二意見）、C 輪（依停頓切段，每段都帶入本案人名與術語提示）。</li>
+      <li>另對 16 個關鍵片段做降噪後重轉，用來確認門牌、坪數、條文頁碼等細節。</li>
+      <li>以聲紋分群切出約 3 個主要聲音和多個次要聲音，再依稱呼、自我介紹、點名順序與內容人工判定是誰說的。聲紋分群在這種環境下會把相近的聲音混在一起（例如黃小姐與許太太、毛先生與楊先生），所以本報告以內容判定為準。</li>
+      <li>時間碼取自轉錄的時間戳，誤差約 1–3 秒。</li>
+      <li>會後補充三張書面資料：偉鉅契約兩張截圖（信託條文、建材設備表，含住戶紅字提問）與前一間建商合約第 6／19 頁照片。凡截圖看得到的條文，一律以原文為準，錄音轉述僅作輔助。</li>
+    </ul>
+  </div>
+
+  <div class="block">
+    <h2>原始逐字稿</h2>
+    <p class="small">Whisper 原始輸出（B 輪），未校正錯字；重複迴圈與雜訊已標註。點時間可播放該段。</p>
+    <div class="tx-tools">
+      <label for="tx-q" class="small">搜尋</label>
+      <input id="tx-q" type="search" placeholder="輸入關鍵字，例如：信託、270、巷子">
+      <span class="small" id="tx-count"></span>
+    </div>
+    <div class="tx" id="tx"></div>
+  </div>
+</section>
+
+</main>
+
+<div class="player" role="region" aria-label="錄音播放器">
+  <div class="wrap">
+    <audio id="audio" controls preload="metadata"></audio>
+    <span class="now" id="now">點報告中的時間碼，從該處播放原錄音。</span>
+  </div>
+</div>
+<div class="tip" id="tip" role="tooltip"></div>
+
+<script>
+(function () {
+  "use strict";
+  var AUDIO_FILE = "assets/urban_renewal_briefing_20261025/audio.m4a";
+  var TOTAL = 4854;
+
+  /* ---------- 工具 ---------- */
+  function toSec(s) { var p = s.trim().split(":").map(Number); return p.length === 3 ? p[0] * 3600 + p[1] * 60 + p[2] : p[0] * 60 + p[1]; }
+  function fmt(t) { t = Math.round(t); var h = Math.floor(t / 3600), m = Math.floor(t % 3600 / 60), s = t % 60; return (h ? h + ":" + String(m).padStart(2, "0") : m) + ":" + String(s).padStart(2, "0"); }
+  function el(tag, attrs, html) { var e = document.createElement(tag); if (attrs) for (var k in attrs) e.setAttribute(k, attrs[k]); if (html != null) e.innerHTML = html; return e; }
+  var SVGNS = "http://www.w3.org/2000/svg";
+  function sv(tag, attrs, text) { var e = document.createElementNS(SVGNS, tag); for (var k in attrs) e.setAttribute(k, attrs[k]); if (text != null) e.textContent = text; return e; }
+  function tsBtn(t) { return '<button class="ts" type="button">' + fmt(t) + "</button>"; }
+
+  /* ---------- 播放器 ---------- */
+  var audio = document.getElementById("audio"), now = document.getElementById("now"), audioOk = true;
+  audio.src = encodeURI(AUDIO_FILE);
+  audio.addEventListener("error", function () {
+    audioOk = false;
+    now.innerHTML = '<span class="err">找不到或無法播放錄音檔。請重新整理頁面，或改用 Chrome／Safari 開啟。</span>';
+  });
+  var lastBtn = null;
+  function play(t, btn) {
+    if (lastBtn) lastBtn.classList.remove("playing");
+    if (btn) { btn.classList.add("playing"); lastBtn = btn; }
+    now.textContent = "從 " + fmt(t) + " 開始播放（往前預留 3 秒）";
+    if (!audioOk) return;
+    try { audio.currentTime = Math.max(0, t - 3); var p = audio.play(); if (p && p.catch) p.catch(function () {}); } catch (e) {}
+  }
+  document.addEventListener("click", function (e) {
+    var b = e.target.closest(".ts");
+    if (b && b.tabIndex !== -1) { e.preventDefault(); play(toSec(b.dataset.t || b.textContent.replace("▸", "")), b); }
+  });
+
+  /* ---------- 分頁 ---------- */
+  var tabs = Array.prototype.slice.call(document.querySelectorAll(".tab"));
+  function show(id, push) {
+    tabs.forEach(function (t) {
+      var on = t.getAttribute("aria-controls") === id;
+      t.setAttribute("aria-selected", on ? "true" : "false");
+      t.tabIndex = on ? 0 : -1;
+      document.getElementById(t.getAttribute("aria-controls")).hidden = !on;
+    });
+    if (push) { try { history.replaceState(null, "", "#" + id); } catch (e) {} }
+    try { localStorage.setItem("urban-renewal-tab", id); } catch (e) {}
+  }
+  tabs.forEach(function (t, i) {
+    t.addEventListener("click", function () { show(t.getAttribute("aria-controls"), true); window.scrollTo({ top: 0 }); });
+    t.addEventListener("keydown", function (e) {
+      var d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
+      if (d) { var n = tabs[(i + d + tabs.length) % tabs.length]; n.focus(); n.click(); }
+    });
+  });
+  var initial = (location.hash || "").slice(1);
+  if (!document.getElementById(initial) || !/^[a-z]+$/.test(initial)) { try { initial = localStorage.getItem("urban-renewal-tab") || "overview"; } catch (e) { initial = "overview"; } }
+  show(document.getElementById(initial) ? initial : "overview", false);
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  window.addEventListener("load", function () { window.scrollTo(0, 0); });
+
+  /* ---------- 提示框 ---------- */
+  var tip = document.getElementById("tip");
+  function tipOn(html, x, y) { tip.innerHTML = html; tip.classList.add("on"); var w = tip.offsetWidth, h = tip.offsetHeight; tip.style.left = Math.min(window.innerWidth - w - 8, Math.max(8, x + 12)) + "px"; tip.style.top = Math.max(8, y - h - 12) + "px"; }
+  function tipOff() { tip.classList.remove("on"); }
+  function bindTip(node, html, onClick) {
+    node.setAttribute("tabindex", "0");
+    node.addEventListener("mousemove", function (e) { tipOn(html, e.clientX, e.clientY); });
+    node.addEventListener("mouseleave", tipOff);
+    node.addEventListener("focus", function () { var r = node.getBoundingClientRect(); tipOn(html, r.left + r.width / 2, r.top); });
+    node.addEventListener("blur", tipOff);
+    if (onClick) { node.addEventListener("click", onClick); node.addEventListener("keydown", function (e) { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); onClick(); } }); }
+  }
+
+  /* ---------- 會議進程 ---------- */
+  var GROUPS = {
+    a: { name: "背景與顧問意見", color: "var(--viz-1)", light: false },
+    c: { name: "合約條文", color: "var(--viz-2)", light: false },
+    m: { name: "毛先生與房客", color: "var(--viz-3)", light: false },
+    p: { name: "程序・逐戶發言・分工", color: "var(--viz-n)", light: true },
+    x: { name: "散會後閒聊", color: "var(--viz-n2)", light: true }
+  };
+  var AGENDA = [
+    [0, 75, "x", "錄音開始、前往會場", "錄音者家人"],
+    [75, 568, "m", "入座寒暄；毛先生先說明房客處境；點名", "毛先生、劉先生、黃小姐"],
+    [568, 810, "a", "會前閒談；黃小姐談三年前與這次；孫先生轉述宏國意見", "黃小姐、孫先生"],
+    [810, 1061, "a", "劉先生自我介紹、介紹三位顧問", "劉先生"],
+    [1061, 1170, "a", "黃小姐：偉鉅已是地主、時機成熟", "黃小姐"],
+    [1170, 1395, "a", "張董：機會難得、八成門檻", "張董"],
+    [1395, 1610, "c", "劉先生：契約難改，主張增修", "劉先生"],
+    [1610, 1773, "c", "黃小姐：合約不必糾結，看審議時程", "黃小姐、張董"],
+    [1773, 2270, "c", "許太太逐條審查：信託、期限、瓦斯管", "許太太、劉先生"],
+    [2270, 2463, "m", "毛先生陳述房子與房客", "毛先生"],
+    [2463, 3270, "m", "眾人與毛先生討論解方", "楊先生、劉先生、黃小姐、毛先生"],
+    [3270, 3880, "p", "逐戶發言；黃小姐離席；老屋現況", "各戶"],
+    [3880, 4290, "p", "收斂分工、致謝、散會", "劉先生、許太太、楊先生、毛先生"],
+    [4290, 4854, "x", "散會後閒聊：50 坪與 70 坪、房客", "錄音者家"]
+  ];
+  (function () {
+    var lg = document.getElementById("agenda-legend");
+    ["a", "c", "m", "p", "x"].forEach(function (k) { lg.appendChild(el("span", null, '<span class="sw" style="background:' + GROUPS[k].color + '"></span>' + GROUPS[k].name)); });
+    var W = 1000, H = 92, padL = 4, padR = 4, top = 8, bh = 40;
+    var x = function (t) { return padL + t / TOTAL * (W - padL - padR); };
+    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "會議進程時間軸" });
+    AGENDA.forEach(function (a) {
+      var g = sv("g", { class: "hit" });
+      var x0 = x(a[0]) + 1, x1 = x(a[1]) - 1;
+      g.appendChild(sv("rect", { class: "mark", x: x0, y: top, width: Math.max(1, x1 - x0), height: bh, rx: 3, fill: GROUPS[a[2]].color }));
+      var w = x1 - x0, label = fmt(a[0]);
+      if (w > 46) { var tx = sv("text", { x: x0 + 6, y: top + bh / 2 + 4, class: GROUPS[a[2]].light ? "" : "lbl-in" }, label); if (GROUPS[a[2]].light) tx.setAttribute("style", "fill:var(--fg)"); g.appendChild(tx); }
+      bindTip(g, "<b>" + fmt(a[0]) + "–" + fmt(a[1]) + "</b><br>" + a[3] + "<br>主要：" + a[4], function () { play(a[0]); });
+      svg.appendChild(g);
+    });
+    svg.appendChild(sv("line", { x1: padL, x2: W - padR, y1: top + bh + 6, y2: top + bh + 6, stroke: "var(--viz-axis)", "stroke-width": 1 }));
+    for (var m = 0; m <= 80; m += 10) {
+      var xx = x(m * 60);
+      svg.appendChild(sv("line", { x1: xx, x2: xx, y1: top + bh + 6, y2: top + bh + 11, stroke: "var(--viz-axis)", "stroke-width": 1 }));
+      svg.appendChild(sv("text", { x: xx, y: top + bh + 26, "text-anchor": m === 0 ? "start" : m === 80 ? "end" : "middle", class: "axis-t" }, m + " 分"));
+    }
+    document.getElementById("agenda-chart").appendChild(svg);
+    var tb = document.querySelector("#agenda-table tbody");
+    AGENDA.forEach(function (a) {
+      tb.appendChild(el("tr", null, '<td class="nowrap">' + tsBtn(a[0]) + ' <span class="small mono">– ' + fmt(a[1]) + '</span></td><td><span class="sw" style="background:' + GROUPS[a[2]].color + ';margin-right:6px"></span>' + a[3] + "</td><td>" + a[4] + "</td>"));
+    });
+  })();
+
+  /* ---------- 立場矩陣 ---------- */
+  (function () {
+    var PEOPLE = ["許太太", "劉先生", "楊先生", "黃小姐", "許先生", "4號1樓", "4號4樓（推定）", "張董"];
+    var ROWS = [
+      ["信託標的、時點、不得設定", { "許太太": ["prop", "29:57"], "楊先生": ["sup", "54:35"], "許先生": ["sup", "1:01:20"], "4號1樓": ["sup", "1:02:30"], "4號4樓（推定）": ["sup", "57:11"], "劉先生": ["sup", "1:04:46"] }],
+      ["契約期限（360 日／三年）", { "許太太": ["prop", "33:18"] }],
+      ["瓦斯內外管費用由建商付", { "許太太": ["prop", "33:52"], "張董": ["sup", "35:26"] }],
+      ["產權復原機制", { "楊先生": ["prop", "54:35"] }],
+      ["電動車充電、廚餘空間", { "劉先生": ["prop", "26:11"], "黃小姐": ["minor", "27:49"], "楊先生": ["minor", "55:34"], "4號1樓": ["minor", "1:02:30"], "4號4樓（推定）": ["minor", "57:11"] }]
+    ];
+    var NAMES = { prop: "提出", sup: "支持", minor: "認為次要" };
+    var t = document.getElementById("stance-table");
+    var h = "<thead><tr><th>議題</th>" + PEOPLE.map(function (p) { return "<th>" + p + "</th>"; }).join("") + "</tr></thead><tbody>";
+    ROWS.forEach(function (r) {
+      h += "<tr><td><b>" + r[0] + "</b></td>" + PEOPLE.map(function (p) {
+        var c = r[1][p];
+        return c ? '<td><span class="cell c-' + c[0] + '" data-t="' + c[1] + '" title="' + p + "・" + NAMES[c[0]] + "・" + c[1] + '">' + NAMES[c[0]] + ' <span class="mono" style="font-size:11px;opacity:.8">' + c[1] + "</span></span></td>" : '<td class="c-none">—</td>';
+      }).join("") + "</tr>";
+    });
+    t.innerHTML = h + "</tbody>";
+    t.addEventListener("click", function (e) { var c = e.target.closest(".cell"); if (c) play(toSec(c.dataset.t)); });
+    Array.prototype.forEach.call(t.querySelectorAll(".cell"), function (c) { c.style.cursor = "pointer"; });
+  })();
+
+  /* ---------- 租約與都更時程 ---------- */
+  (function () {
+    var lg = document.getElementById("lease-legend");
+    lg.innerHTML = '<span><span class="sw" style="background:var(--viz-3)"></span>房客租約</span><span><span class="sw" style="background:var(--viz-1)"></span>都更流程</span><span><span class="sw" style="background:var(--viz-1);opacity:.35"></span>區間不確定的部分</span>';
+    var Y0 = 2026, Y1 = 2037, W = 1000, padL = 190, padR = 20, rowH = 44, top = 10;
+    var ROWS = [
+      ["房客租約（剩餘）", "var(--viz-3)", 2026, 2035.5, 2037, "已住約 10 年（另一說 12 年），20 年約剩約 8–10 年（推定）", "1:19:45"],
+      ["整合、審議到拆除", "var(--viz-1)", 2026, 2030, 2031, "黃小姐：最快也要四五年才會拆", "7:39"],
+      ["興建到完工", "var(--viz-1)", 2030, 2034, 2036, "黃小姐：完工大概八九年、十年以後", "7:39"]
+    ];
+    var H = top + ROWS.length * rowH + 34;
+    var x = function (y) { return padL + (y - Y0) / (Y1 - Y0) * (W - padL - padR); };
+    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "房客租約與都更時程對照" });
+    for (var y = Y0; y <= Y1; y++) {
+      svg.appendChild(sv("line", { x1: x(y), x2: x(y), y1: top - 4, y2: top + ROWS.length * rowH, stroke: "var(--viz-grid)", "stroke-width": 1 }));
+      if ((y - Y0) % 2 === 0 || y === Y1) svg.appendChild(sv("text", { x: x(y), y: top + ROWS.length * rowH + 20, "text-anchor": "middle", class: "axis-t" }, String(y)));
+    }
+    ROWS.forEach(function (r, i) {
+      var yy = top + i * rowH + 10, bh = 22;
+      svg.appendChild(sv("text", { x: padL - 12, y: yy + 15, "text-anchor": "end", style: "fill:var(--fg)" }, r[0]));
+      var g = sv("g", { class: "hit" });
+      g.appendChild(sv("rect", { class: "mark", x: x(r[2]), y: yy, width: x(r[3]) - x(r[2]), height: bh, rx: 4, fill: r[1] }));
+      g.appendChild(sv("rect", { class: "mark", x: x(r[3]) + 2, y: yy, width: x(r[4]) - x(r[3]) - 2, height: bh, rx: 4, fill: r[1], "fill-opacity": .35 }));
+      bindTip(g, "<b>" + r[0] + "</b><br>" + r[2] + "–" + (r[3] === r[4] ? r[3] : "約 " + Math.floor(r[3]) + "–" + r[4]) + "<br>" + r[5], function () { play(toSec(r[6])); });
+      svg.appendChild(g);
+    });
+    svg.appendChild(sv("line", { x1: x(2026), x2: x(2026), y1: top - 4, y2: top + ROWS.length * rowH, stroke: "var(--viz-axis)", "stroke-width": 1 }));
+    document.getElementById("lease-chart").appendChild(svg);
+  })();
+
+  /* ---------- 同意門檻 ---------- */
+  (function () {
+    var D = [
+      ["一般多數決", 50, "var(--viz-1)", "過半數即通過", "張董以立法院表決為例", "22:48"],
+      ["修憲門檻（立委）", 56.25, "var(--viz-1)", "3/4 出席 × 出席 3/4 同意 ≈ 56%", "張董：八成比修憲門檻高很多", "22:48"],
+      ["本案送事業計畫", 80, "var(--viz-1)", "錄音中多次提到「八成」", "推定為自劃更新單元 4/5 門檻，待確認", "22:28"],
+      ["審議最順", 100, "var(--viz-1)", "100% 同意審議快，台北 168 專案", "黃小姐：通過的幾乎都是 100%", "28:35"],
+      ["本棟 8 戶表態（僅本棟）", 87.5, "var(--viz-n)", "7 ÷ 8 = 87.5%", "楊先生：七戶已超過 80%；法定比例以整個更新單元計", "1:06:13"]
+    ];
+    document.getElementById("consent-legend").innerHTML = '<span><span class="sw" style="background:var(--viz-1)"></span>門檻</span><span><span class="sw" style="background:var(--viz-n)"></span>本棟現況（不是法定計算基準）</span>';
+    var W = 1000, padL = 210, padR = 70, rowH = 38, top = 6, H = top + D.length * rowH + 30;
+    var x = function (v) { return padL + v / 100 * (W - padL - padR); };
+    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "同意門檻比較" });
+    [0, 25, 50, 75, 100].forEach(function (v) {
+      svg.appendChild(sv("line", { x1: x(v), x2: x(v), y1: top, y2: top + D.length * rowH, stroke: v === 0 ? "var(--viz-axis)" : "var(--viz-grid)", "stroke-width": 1 }));
+      svg.appendChild(sv("text", { x: x(v), y: top + D.length * rowH + 18, "text-anchor": "middle", class: "axis-t" }, v + "%"));
+    });
+    D.forEach(function (d, i) {
+      var yy = top + i * rowH + 8, bh = 20;
+      svg.appendChild(sv("text", { x: padL - 12, y: yy + 14, "text-anchor": "end", style: "fill:var(--fg)" }, d[0]));
+      var g = sv("g", { class: "hit" });
+      var w = x(d[1]) - x(0);
+      g.appendChild(sv("path", { class: "mark", d: "M" + x(0) + "," + yy + "h" + (w - 4) + "a4,4 0 0 1 4,4v" + (bh - 8) + "a4,4 0 0 1 -4,4h" + (-(w - 4)) + "z", fill: d[2] }));
+      g.appendChild(sv("text", { x: x(d[1]) + 8, y: yy + 14, style: "fill:var(--fg);font-weight:500" }, (Math.round(d[1] * 100) / 100) + "%"));
+      bindTip(g, "<b>" + d[0] + "</b><br>" + d[3] + "<br>" + d[4], function () { play(toSec(d[5])); });
+      svg.appendChild(g);
+    });
+    document.getElementById("consent-chart").appendChild(svg);
+    var tb = document.querySelector("#consent-table tbody");
+    D.forEach(function (d) { tb.appendChild(el("tr", null, "<td>" + d[0] + '</td><td class="mono">' + d[1] + "%</td><td>" + d[3] + "；" + d[4] + " " + tsBtn(toSec(d[5])) + "</td>")); });
+  })();
+
+  /* ---------- 分回坪數 ---------- */
+  (function () {
+    var D = [
+      ["2號3樓 毛先生", 70, 72, "黃小姐對毛先生說「現在分 72 坪」；會後閒聊說「他分七十坪」", "46:43", "中"],
+      ["4號3樓 我們", 50, 50, "會後閒聊：「我們這邊分五十坪」", "1:15:33", "中"],
+      ["某戶・先前建商條件", 46, 46, "會前閒談：「之前簽約那家，我們這一戶是分 46」（也被聽成 36）", "10:50", "低"]
+    ];
+    var W = 1000, padL = 210, padR = 90, rowH = 40, top = 6, H = top + D.length * rowH + 30, MAX = 80;
+    var x = function (v) { return padL + v / MAX * (W - padL - padR); };
+    var svg = sv("svg", { viewBox: "0 0 " + W + " " + H, role: "img", "aria-label": "錄音中提到的分回坪數" });
+    [0, 20, 40, 60, 80].forEach(function (v) {
+      svg.appendChild(sv("line", { x1: x(v), x2: x(v), y1: top, y2: top + D.length * rowH, stroke: v === 0 ? "var(--viz-axis)" : "var(--viz-grid)", "stroke-width": 1 }));
+      svg.appendChild(sv("text", { x: x(v), y: top + D.length * rowH + 18, "text-anchor": "middle", class: "axis-t" }, v + " 坪"));
+    });
+    D.forEach(function (d, i) {
+      var yy = top + i * rowH + 9, bh = 20, low = d[5] === "低";
+      svg.appendChild(sv("text", { x: padL - 12, y: yy + 14, "text-anchor": "end", style: "fill:var(--fg)" }, d[0]));
+      var g = sv("g", { class: "hit" }), w = x(d[1]) - x(0);
+      var col = low ? "var(--viz-n)" : "var(--viz-1)";
+      g.appendChild(sv("path", { class: "mark", d: "M" + x(0) + "," + yy + "h" + (w - 4) + "a4,4 0 0 1 4,4v" + (bh - 8) + "a4,4 0 0 1 -4,4h" + (-(w - 4)) + "z", fill: col }));
+      if (d[2] > d[1]) g.appendChild(sv("rect", { class: "mark", x: x(d[1]) + 2, y: yy, width: x(d[2]) - x(d[1]) - 2, height: bh, rx: 3, fill: col, "fill-opacity": .35 }));
+      g.appendChild(sv("text", { x: x(d[2]) + 8, y: yy + 14, style: "fill:var(--fg);font-weight:500" }, (d[2] > d[1] ? d[1] + "–" + d[2] : d[1]) + " 坪" + (low ? "（低可信）" : "")));
+      bindTip(g, "<b>" + d[0] + "</b><br>" + d[3], function () { play(toSec(d[4])); });
+      svg.appendChild(g);
+    });
+    document.getElementById("ping-chart").appendChild(svg);
+    var tb = document.querySelector("#ping-table tbody");
+    D.forEach(function (d) { tb.appendChild(el("tr", null, "<td>" + d[0] + '</td><td class="mono">' + (d[2] > d[1] ? d[1] + "–" + d[2] : d[1]) + "</td><td>" + d[3] + " " + tsBtn(toSec(d[4])) + "</td><td>" + d[5] + "</td>")); });
+  })();
+
+  /* ---------- 逐字稿 ---------- */
+  var TX = [[4.7, "好,拿著手機　這個要拿出來,不然我會聽到　打打,我來啦,打打　打,交給你了,拜拜了　我們這個時間是慢的是不是　媽,家裡不是會慢嗎　沒有吧　學長五分鐘確實是聊禮貌的"], [25.0, "對啊,你走下去也差不多,剩三分鐘　不能遲到的,就不喜歡遲到可以提早,不能遲到"], [75.4, "學長五分鐘確實是聊禮貌的"], [78.7, "（雜訊／無法辨識）"], [79.4, "你好你好　這邊這裡這裡光 sponsored　這邊　因為剛好就在我家裡面　對　等一下坐下　坐坐坐　我相信他現在他應該還可以住個兩三年吧　對　毛先生你好　好久不見了"], [100.3, "好久不見了　好久不見了　那個黃顧問一定要給他坐　然後毛先生你一定要坐　這個我們要　您是那個　三樓　三樓嗎　對　坐坐坐　謝謝　謝謝　謝謝　因為檔機　檔機是沒事　先分一下攔鐵是哪位"], [122.4, "現在在發線嗎　現在在發線　沒有問題　那你再強調一下　攔鐵是哪位　攔鐵是打勾的　其他都打勾　那是　那是　那是一個寶座是沒事　那都不用　那都不用　那是一個寶座是沒事　那是一個寶座是沒事　那都不用　那都不用　那都不用　那都不用　那都不用　那都不用　那都不用"], [145.4, "我們在拿鐵嗎　放明火"], [147.4, "（雜訊／無法辨識）"], [147.6, "謝謝　這裡　我看一下　朋友朋友　看到這裡喔　對啊　對啊　這裡"], [155.4, "（雜訊／無法辨識）"], [156.8, "豬域的家　啊　我們不用　不用　厲害"], [162.1, "（雜訊／無法辨識）"], [165.5, "四十別"], [165.7, "（雜訊／無法辨識）"], [171.3, "我是剛好看到那個　好　繼續呀　因為他上一次 他建築物理學家的時候　因為你剛好沒來　他說集散變態這一塊　假如不能夠解決的　那我們讓他解決　所以他要前面那一塊能夠解決　跟我們合起來"], [192.8, "他這樣他不就才有理論　當然我們假如不跟他合　他可能說我們也沒有希望　這麼小一點的情形　對不對　那現在主要就是　重點就是我們一定是會跟他合　那怎麼還再來研究一下　其實說坦白話 毛先生　站在我的角度"], [213.8, "我現在那間房子　我一個月收租可以收到4萬多塊錢　但是您如果說只因為　只因為你的朋友花了200多萬裝潢　而因此我們這個案子是不能成的話　那我甚至會　就像我剛才講的　建議我們幾個鄰居湊湊錢"], [235.0, "把你們這個200多萬　因為那個錢真的是很小的錢　我現在還沒有　我跟你講 倒一下　不能這樣說　不要動 我這個人在　我在外面困了那麼多年　不能想說今天不要你　不是不要你　把錢還給他　來來來 沒關係"], [255.6, "你要這樣講的話　我這麼連砍都跟你不談　我這個人態度就是　我告訴你　我的困難在哪裡　我做到什麼都沒有　我對人就是這樣子　那我的意思說　我個人掏錢掏200萬幫你還那個　不是　不是用那個錢來解決　我一定要對方同意"], [276.8, "明白　不是我同意　對 明白　毛先生 因為你的意思是他朋友同意　給你租給　你現在的房子租給你的朋友　然後朋友花了270萬　我當時他找我媽說　我說我這裡有空　你要住他一個很老很老　很舊的房子　那你要住的話　你要好好整理"], [298.0, "他說那個我花了270萬　把你們全部整就完　我跟他講　那一面價錢就隨便你開　他就開了1萬塊錢　我說錢對我來講　這種錢不是對我很重要　是人在講道理上　你得做好　你現在跟我講說"], [319.9, "你拿270萬讓他搬走　我沒辦法跟他交代　那如果他同意　不過我相信他可以體諒　因為現在很多更新的案子　不是你講可以體諒　可是我在外面比較混　那毛先生　那請問當初你跟他簽的合約呢　因為你早有合約　因為我有在那個"], [340.9, "律師事務有註明　因為我跟他講一個東西　你跟我簽20年　他跟我簽20年　因為20年後我一定掛了　我78歲了　不一定　下到100多歲　所以我說萬一以後是　我想要一個計程　就很難講了　所以我先定下來"], [364.2, "起碼你可以住20年　安心的住20年　我一直找律師公證　現在要跟他溝通　我要跟他溝通　就是務主你要跟他溝通　我會跟他講　說你們今天談什麼要做　你會跟他說　不會　我會跟他說就對了　我會跟他說　所以主要我要尊重他的"], [385.5, "當然　更重要我是尊重他的意見　不是我來做決定　我決定一個東西我就要尊重他　我充分了解　充分了解　等於說你租給這個20年　對　然後他又花了270萬裝修了　我租金很便宜　給他1萬塊錢　就是這樣　是你一個好朋友吧"], [406.5, "好朋友　所以你說道義上要這樣　道義上　要尊重他　我這個年代的人是講道義　其他的都沒辦法來講　那你們今天會一起會相當　你們主要有子女嗎　我女兒　我女婿我還有女兒　所以我今天帶她來跟他們要　讓他們親"], [426.5, "是　那你把這張紙給我　基本上談就是可以就是說　因為大家爭鬥　其他住戶都同意　然後看他有沒有　就是　如果說順著這個意思　因為我剛講的不是我的問題　其實如果是我們同意也超過八成　也可以送事業計畫"], [448.5, "最後還是會強制　就是如果只有一戶　現在的法令是這樣　但是我們就是跟他講說　如果說同意也沒那麼說　大概也要　最快如果以現在　他們的生意最快也要45年　才會參加　太多　最快也要45年　然後等到完工也是大概　八九年十年以後"], [470.1, "對　所以就是說可以談說怎麼平常他這樣子　我們現在跟他的條件　我們現在人到齊嗎　我們二樓三樓的條件都一樣　人到齊嗎　對　我們人到齊嗎　那邊嗎　陽新區　一樓　我來推他　一樓陽新區那裡就假設有個大樓　我先借一下你們自己手機"], [490.1, "可以　兩邊都有　廚房也有　所以我先把狀況講清楚　好　好　謝謝　我覺得這個　充分了解　這不是你給我錢我就　我也不要你錢　我能夠那麼肯定移住他　也不是要他的錢"], [510.9, "你老闆　喂 你老闆　他還是你老闆　你在哪　不是 你都可以看到　我們現在條件好好好　好好好　好 好 好　對 好　就得你了　是很了解的　所以現在就是　一樓二樓三樓四樓"], [533.4, "那是在新庄　還有　一樓　那個四號四樓是那個嗎　四號四樓是我　對 然後您是二號四樓嘛　二號四樓　所以陽先生到了　陽先生他　第一樓是陽先生嘛　還有　二樓就是毛毛先生　所以還有　三樓　三樓毛先生　四號一樓還沒來　那就我們這一邊"], [554.1, "有啦　四號一樓嘛　謝謝 謝謝　所以四號一樓　四號二樓　四號三樓　然後四號四樓"], [561.5, "（雜訊／無法辨識）"], [562.2, "所以就只差　陽先生了　陽先生　我想這樣子　因為我請了那個　黃小姐來當我的顧問　她真的是百忙之中　所以她大概只有　一個小時　一個小時啦　所以我想說是不是　等一下讓我先發言"], [583.5, "可以啊　然後呢　我請來的顧問　你們有　有問題　可以問他　等於說他們雖然是我的顧問　可是你們有問題　也可以問他們　然後一小時之後　他就會先離開　有事情先離開"], [597.4, "（雜訊／無法辨識）"], [599.5, "這邊給那個陽先生坐好　有打電話給他嗎　有 我打了　他說三分鐘　先生　先生　你坐這邊啦　你在這裡　你是主人　你坐這邊啦　你主人家　對"], [623.2, "謝謝你　謝謝你　謝謝你　謝謝你　要不然我們要找一個　什麼咖啡廳什麼也很麻煩　因為假日我們人多　到咖啡廳裡面去一定沒位子　這邊每次我要找個三四個位子都好看　一兩個可以啦　像我們這麼多人找　你買二樓的時候你知道路風嗎"], [645.4, "有點重　有啊他有啊　我說你啊　你剛才　之前我們簽約的那一家　我們這一戶是分36　因為他只知道好幾年一天就可以這一家有三個　所以他的條件都是破　公社就蓋完通常都六個　我有花了幾張但沒關係"], [667.0, "這個路風都要半期　現在是72　路風這個都是小錢　對啦對啦　所以這一家是已經好幾年了　所以這家會不一樣嘛　大來很高　我現在看了大概的所有的條件　我覺得這一次成功的機率很高"], [687.4, "剩下就是各位的態度了　那我覺得大家可以每一戶都來　然後我看大家也很清楚說　以我們目前機率的條件　這一次如果不跟的話　以後我們會很辛苦　對啊　哪怕你以後要當未來　你看你的面前到處這麼小　連要蓋都會很辛苦　因為可以看到前面他蓋的也很辛苦"], [707.9, "所以當然這是一個很好的機會　尤其站在我做建築的立場　我也覺得有機會更新　讓這個環境　整個大環境變得更舒服　做的品質更好　我覺得大家真的是可以　有時候一些小細節　我覺得因為現在的法令　因為更新已經施行大概有快20年了"], [730.8, "其實所有如果更新跟建商這些約定　包括他這些法令　都綁得很死了　你說他來騙你是辦不到的　而且真的要騙　就打電話去騙　用更新來騙人是太辛苦了　因為這個門檻很高　大概就是所以我今天來的目的就是"], [751.8, "如果你們有針對更新的這個部分　有想法我可以跟你們討論　不過我不是　如我三年前一樣的態度　你還記得我三年前　那時候我跟你們講說　你們如果不跟的話　接下來你們要自己要　發錢去找一個設計師　幫你們把自己的條件寫好　然後一家一家去拜託別人　幫你去做更新"], [773.2, "可是更新一定得要有關係　你目前最好的位置就是這一個　他沒有了　我們真的以後我們真的只能自立自強　你要做維羅都會很辛苦　因為你沒有面前的道路　上次有來那個紅國的趙經理　他講得跟他一模一樣　一模一樣"], [793.4, "他就這樣跟我講　我們只要這次不跟　我們跟他合作不見得成功　他慈善沒買我們就沒了　我們在這次慈善有買的情況下　我不跟他合作以後沒機會了　來坐這兒　不要　特別留一個座位"], [813.9, "坐在公路上　沒關係　馬先生　我跟你們爸爸跟你們前面不在　剛剛孫先生講的是他請了紅國建國　建設的一個顧問來當他的顧問　然後這兩位是我請的顧問　他剛剛的意思是說他請了紅國建設顧問"], [836.4, "跟他講的話　跟黃小姐　跟現在大家講的話是相互拖著　各位　來　老闆　是　這樣子　因為我請的黃小姐　對　這就是三年前有幫過大家　那個　紅大師最得意的副總"], [856.9, "然後因為他一小時之後還有事情　所以他等一下會先離開　不好意思　然後所以我們現在就是讓我的顧問先發言　我先說一下　我是4號二樓的劉先生　我從小就住在這邊　從小就是住在這裡"], [877.9, "所以這種房子還沒有蓋的時候　我媽媽就買　然後買好了　我就住進來了　所以應該各位地主的資歷　沒有我這麼老　我印象中我們這邊跟旁邊需要的部分　大概有5次了　前面的通通都沒有成功"], [900.1, "沒有成功的原因我們就不要去討論　現在的這一次我是覺得很幸運　因為我們2號二樓的孫先生　他才買來不到一個禮拜　加入群組的沒通　就說要路跟了　所以我感覺我是有分到那個孫先生的空間"], [923.0, "但是我們也不能過度的樂觀　所以我這次請了三位顧問　第一位就是大家很熟悉的黃小姐　她在建築業界　你一定要找比較知名的建商　譬如說什麼大陸工程　什麼"], [943.1, "什麼華度建設　什麼潤鈦的那個　你要問到這種大建設公司的高層　應該沒有人不認識她的　只要是有資格請黃永宏大師幫他們設計圖的　應該都認識她　那這位張董"], [963.2, "他是我40年的老同學　他主要是新北市房地產都很熟　他現在已經退休了　所以看起來就是很低調　但是他現在手中他每個月還是要管理近百間的套房　那我呢　除了他們兩位之外　我這次還請了一位蔡經理"], [985.9, "蔡經理她是專門做都更案的　她本來就在建築業做事情　然後他們公司兩年前開始也接手做都更　所以她是自己要設計都更規劃的　那我把我這個案子給了她的時候　她為了謹慎她去找她的師傅　就是帶著她做都更的師傅"], [1007.4, "她師傅講了一句話　她說我們這個基地的條件　我講原文　我們這個基地的條件沒有資格選建商　因為我們很裡面　然後這個基地又不大　所以只要是有建商願意跟我們合作"], [1028.8, "就應該要積極的想辦法　一起把這個都更案促成　這個是她師傅說的話　那接下來就是說　因為我們顧問的時間有限　我們先請黃小姐跟大家說說話　然後大家有問題可以提　然後再請張董跟大家說說話"], [1049.9, "就是說我先請我的兩位顧問發言　然後大家有問題都可以像我問他們一樣　來問他們　這都是免費的　好 來　那我們先請黃小姐進來　好 大家好　我要先恭喜你們　因為目前為什麼我認為這個案子可能嫌陷很高　是因為這個委屈這家建設公司"], [1070.7, "它已經變成地主部了　一般會成功它要當地主部　它比較容易去統治　因為至少它佔了幾分之幾　它是有話語權的　而且再加上現在整個時機都已經很成熟了　成熟到有些人他們已經坐不住了　沒有人來找我　開始去找別人"], [1091.5, "沒有人來幫我讀更　而且因為現在整個你的生活品質　大家整個大環境更新已經是變成是　跟三年前又是不一樣的時光了　所以我覺得可能接下來你們會面臨就是談條件　然後選庫　這些其實都很成熟"], [1113.3, "現在最具體的東西它就是把你的房子變成一個數字　然後新的房子也是一個數字　它就是去等價對接　沒有任何懷疑　那你說你怎麼知道我的房子值多少錢　很簡單　有三家不同專業的估價公司它會進來"], [1133.6, "所以這就是一個很公平的機制　因為畢竟人我相信有人　這一個房子是我這輩子唯一辛苦攢下來的　會覺得說我希望它可以最大化　可是就算到最大化　在我看起來跟你整體的定義　那個最大化的部分它畢竟是小數"], [1154.9, "所以我當然有八戶　我還是很祝福你們　希望在這個過程裡面　我們每個人都也更新為前提的之下去做這些選擇跟考慮　那也請張董幫我們說幾句話　他說完了"], [1176.2, "我還說了幾次了　不想引大家的刻骨　好　我請他兩三年前我也來過　我當然沒有成功　我只能說以我那個投資的經驗來說　這一次的這個機會相當於成功的機會很大　那我之前我在文物常委跟那個同學有講過說"], [1197.5, "這個都跟藍營案勝過三十年流血流汗　那你要選擇三十年流血流汗還是要選擇這一次的機會　我個人覺得如果是我的話我也都不一定會選擇這次的機會　但是所有的機會都是一樣　不是一定沒有風險都有一定的風險在　那大家就評估清楚說你覺得可以承受這個風險"], [1221.5, "那你願意拿到這個利潤　這個利潤其實還蠻大的　我大概估算幾千萬的潛在的利益　然後這個某個方面來講我很羨慕各位　因為我自己手中的方式目前我只能用一個介紹來談過　哈哈哈　這是真實的　所以你們有建設商一而在再而分來這邊敲門"], [1242.5, "一定是在這個位置上有一些特殊性　但有它有點在　但也有它的缺點在　缺點大家前面有講過　就是相差很小　這個機會過了以後這邊就只能說你自己找建設商來蓋　要自己花錢　那蓋出來就可能就那麼小小的這樣　條件相對　對　所以我們這個基地的條件有它好的地方就位置很好"], [1266.5, "有它不好的地方就是它在巷子裡面　很小的巷子裡面　那我個人的看法就是說有機會就要把握　不要錯過　錯過之後等到下次改變可能是20年後30年後　然後就是這樣小小一間這樣　這樣住起來也不見得會很舒服　不如住比較大間一點"], [1287.2, "而且不用花一毛錢　而且你20 30年後我們自己蓋是要花錢嗎　而且講句難聽一點　20 30年後有些人就已經不在了　你要等到這個時候嗎　現在有錢可以　我講比較粗俗一點　你可以變現　你拿這個錢可以再去買其他的房子"], [1307.9, "你要買法拉利搞不好都買得起　那你要等到你的兒子去買　這兩個之間去買也不錯　但是現在買或是現在把它機會綁握下來　再去做其他的投資　以後會有更多的利潤可以享受　或許　或許有些人　想著很多危險的地方　可能會被騙或什麼"], [1330.0, "我不能排除這種可能性　但是以我這樣一路這樣看下來　機會很小　小到我們可以去稍微的去承受　這樣小小的風險　而去換取更大的利潤　我覺得這是很理性的選擇　然後以這個我們講這個都更　它不是需要百分之百投入"], [1351.6, "那個建商他也這樣講　所以　既然會　加速這個都更的成功的機率　那這個對大部分的人來講也是這樣　也許對小部分來講可能覺得　為什麼我沒有同意也會成功　但是有時候事實上就是這樣　就像我們立法院投票過關就過了"], [1373.3, "那我們這個至少要八成以上才要過　已經是比修憲門檻還要高很多　所以我想就大家做個考量　用理性去看　不要用太多的感性　或太多的害怕這個風險　因為這個利潤我認為是相當的難得　至少我剛剛就講的　以我個人來講我是相當的羨慕各位"], [1395.1, "所以這群發最有說服力　這個機會不會沒有　你們的幫是重生　謝謝 謝謝你們　那我請來的兩位顧問　他是那個蔡經理　因為他是審查條文的　所以這個條文就是我等一下會講　那現在　對於我來講　我跟那個黃小姐跟張董"], [1416.7, "大家有沒有什麼問題　就是把它當作你們自己的顧問來問　沒關係　這個不用錢　這是我們私人交情請來的　那如果沒有問題的話　我就說一下我的看法　我另外請了一個蔡經理　還有他的師父是幫我們逐條審查"], [1438.3, "這個部分我想要講得細一點　所以請大家如果很關心這個案子的話　稍微　聽一下　就是說他給我們的契約書　我有問那個林專員　我說我們對這契約裡面的條文　如果想要改的話是有可能嗎"], [1460.1, "他說應該是不太可能　不太可能　因為他們一向都是拿這一份去簽的　如果說我們這一改　那其他人知道可能全部都要改了　所以說　我上次那個珠珠　他有說可以備註　對 備註附屬　對"], [1478.7, "（雜訊／無法辨識）"], [1479.7, "對　那我個人　我個人　現在我要講一下我個人的看法　我們要打一場戰爭要分兩個部分　一個是戰術　一個是戰略　那通常把這場戰爭打贏的關鍵是戰略　不是戰術"], [1500.2, "你的戰術可能很強　結果打打打　可以直接講合約的內容嗎　看哪裡有需要增加這樣比較快　我個人是比較傾向　我個人是比較傾向　我們地主應該是跟建商合作　然後成為雙贏"], [1522.6, "而不要把對方當作是敵人來看　所以後面大家都可以逐條去審查說　哪一條要改哪一條要改　我都沒有意見　但是不要忘記了　那個林專員說你這個實質要改的部分　除非是真的有重大的爭議　對我們這個界範會有影響"], [1544.0, "那他才有可能考量去改　因為其實他前面寫的條約　他這樣子列的目的　你表面上看是感覺好像對建商比較有利　可是現在問題來了建商他也是地主　所以對他們有利　其實對我們地主也是有利的　所以我個人　我個人反而比較傾向把後面"], [1565.6, "他們有那個建設設備那邊　譬如說他們在提到停車場的時候　就沒有事先規劃電動車布裝的設備　然後還有譬如說像收熱車那邊　他就沒有一個廚餘的空間"], [1585.9, "這些細節部分　其實我們在三年前的合約都討論過了　所以我特別把三年前合約　我們討論過的內容傳給了大家　那我覺得那個部分可以用徵休的方式　把它加上去　因為這樣子加上去　我覺得他們同意的可能性會比較大"], [1606.9, "還是說我們先聽聽他們的意見　對我知道　因為等一下　我先講一下好了　因為其實這個合約在每一個案子裡面　他其實都還滿日式的　所以他在我看起來　他裡面的這些東西你改也不改"], [1627.2, "跟你最後案子的呈現　我覺得差異並不會很大　所以如果你在這時候在裡面去找這些意見　你可以寫　可是他不是絕對　如果他建章絕對說　你之後跟我討論這個好像　我相信他不會　因為他們畢竟是做服務業的這個"], [1647.9, "可是在我看起來　大家不需要花太多錢去看這個合約　你可能接下來　你會比較在意的是　我自己你個人本身　你的這個房子跟我後續　我可以在就是我分到這個房子的對價的關係　這個還是你們比較在意的　包括你剛剛提到的那一些　建廠的"], [1668.1, "垃圾這些　設備　其實這些法令都有要求　包括你說車子怎麼停車　這些法規都有寫　他一定要合法　他才有辦法蓋這個房子　所以你不用擔心這個　也除於的保安事務的位置　除於我講白了好了　他如果他沒有做"], [1688.4, "包括現在我住的地方也沒有做　為什麼　因為事實上他不好用　所以他法律上他沒有要求做這些　那真的要的話　你們以後都是大家進出這個房子　你可以進去管理會裡面　去找一個地方去做這個　這都是小事　可是他不應該變成是你現在在跟他談條件的"], [1711.6, "就是你知道　包括比如說你開發的時間　你要他要一個時間說我今天要過　我告訴你都更　我剛剛就提到　就譬如說我們都認為說　我不用百分之百同意　可是你有百分之百同意　跟沒有百分之百同意　你進去都更委員會審查的時間　完全是兩件事　等於是說你沒有百分之百同意"], [1734.0, "你會害這些公務人員　有一天要被強制踩某些人的家　你覺得他肯嗎　所以他們都說　可以不用百分之百同意　可是事實上你去注意看　通過幾乎都是百分之百同意的　尤其是臺北市　那新北市當然因為這邊　他們比較有氣波"], [1754.3, "可是說白了　你還是最好是百分之百同意　你才會看　因為現在臺北有168　所以他要求你16個月要完成　那如果更快當然是對大家更好　所以有氣波　所以他比較敢拆　他敢拆 對　那請問"], [1774.5, "您再請另外一位經理看　合約它裡面有沒有提到哪裡　你除了說後面建材的部分　那個是之後他們會設計　他的答案是沒有重大的需要去　但是有些小部分　那我可以提一下嗎　你聽我說完了"], [1796.0, "我說完了　我針對合約的部分　因為就是信波　它上面也是有些　但是好像有寫不完整　就是他說　統一將更新土地及起造人信托於　以方指定的金融機構　他起造人信托　應該是起造人的興建資金吧　一起"], [1816.7, "我們的土地跟　你講的是第幾頁　第30　第6頁　第6頁的第二條　第二條裡面它有寫說　然以為確保本大樓是興建的參與　將更新土地及所有權能權益　統一將更新土地及起造人信托於"], [1837.4, "應該是起造人的資金　好像漏掉　它沒寫　它是將起造人信托於以方的金融機構　所以它起造人後面是不是要加資金　因為這樣就是他的　因為他也會有寫措施或漏掉　你這一點我那邊是沒有提到"], [1857.6, "因為這個是　我會發現是因為　我上次有傳新北市政府的都更處的　他們的一個律師　他演講的那一個他參考的合約　他就說你們如果要都更就參考這個合約　他裡面有寫資金　對　對　他這邊就有寫信托管理　因為我也是看這個　我也不是專業的"], [1878.5, "即使不動產及以方資金交由信托專務　所以他就是應該是一起　我相信這個都更裡面　都會有人去審這個　所以如果說　所以只是說他的字的少寫了　剛才有的漏寫了　對還有就是說　所以是他這個案子"], [1899.5, "他的成立方式沒有　還有再來就是說　他在下面那個　假方同意於簽訂本契約　等於說你簽訂了這個我們同意書之後　經以方書面通知　數日內要信托　就是他通知我們要去信托"], [1919.9, "等於說我們簽了這個同意之後　這本合約他通知我們15日內　就要把我們土地信托　那這個律師這邊有這個參考的範例　他是有說為確保　就是為確保我們的土地太早被信托　所以其實應該是要那個事業合併　等於說8成那事業合併後"], [1941.9, "才把我們的土地信托　不然我們現在他都還沒有收到8成的話題　我們簽了合約就馬上信托　所以他就說太早了　所以他這個也有寫　因為我也是看了他說　同意　然後再來就是上面也要付諸要寫說　不得已將假方土地辦理融資代款　或設定給營　他這個也是很重要"], [1962.8, "在付諸方面我們也是要寫這個　那你昨天跟你談的那個人　誰直接跟那個人問　直接寫一個　因為這個是那個範例　我就上次有傳在群組裡面　對 馬上寫　那就是　等一下問林經商員　對 這個就是　是說在信托方面的問題　因為我們這樣如果一簽土地馬上信托"], [1983.6, "然後他這個是有寫　律師這個範例是有寫說　你要就是事業合併後再信托　我們的土地才不會太早　等於說你快已經都合格了　對不對　那我他現在因為他這個是　我們跟他簽了之後　他是說360日內　等於說三年內如果他沒談成"], [2005.5, "就檢閱這個都有期限　對不對　所以這是合理的　就是做什麼事都要有期限　如果你這個期限80沒過　你三年後就是看要再續簽　還是怎麼樣再談這樣　所以這個是我提的問題　我支持　信托的問題　然後再來是我發現的問題　這個都不是找他麻煩"], [2026.3, "這個就是　就是再來就是瓦斯管他有寫　在第29頁　他說有本公司統一申請天堂瓦斯外管　那我覺得他這裡沒有寫說　要付諸　這個可以付諸　就是天堂瓦斯的內外管費用　均由以方負責"], [2046.3, "就他們負責　一定啊　對因為有時候他們會　預收有時候會叫那個　我沒看過　基本上他們在請死照的時候　這些瓦斯管線都進來了　那時候他怎麼想要的就是這個　對所以他這邊沒有寫　沒有寫　所以因為這個是有糾紛過的"], [2067.8, "以前買以色紅茶就有了　因為我之前因為我聖誕設計師　然後我之前就有案子就是　他就說他是預收物要交屋　然後他就是建商就是請他說　付那個瓦斯管費就要十幾萬　然後後來上網一查　就說這個因為當初他們沒有　沒有跟這邊沒有付諸"], [2088.5, "沒有講說誰　所以這個是既然是他們要付　沒關係他就是付諸備諸一下　就是內外管的　他只有寫統一申請　對他只有寫申請沒有說費用誰付　所以他有可能就覺得　對所以這個就是為了以後的糾紛　我們就是付諸清楚一點　既然是他們要付　你等於是許太太　對所以他剛講我完全同意"], [2111.0, "對我覺得這個要　我覺得就是不是找他們麻煩　就是他有可能就告訴你說一般都要租屋　這個比較簡單　這個等於就是講得更清楚一點　對因為這只要付諸付諸一下就好了　好OK　因為這個有　他講的都說這邊什麼瓦斯管　公用的他是你付的"], [2131.6, "然後屋內的是有住戶自己出來的　因為應該是掛錶的部分是　確實　掛錶通常都是住戶　你來做專修的時候　住戶要付你錢應該就是這個　我覺得是人想的錢　我覺得　沒有那那個有外管　可以跟他爭取的　我覺得可以跟他爭取　掛錶那個不用　掛錶那本來就是住戶要付的　客戶的掛錶費　但是內外管包括大樓上來的"], [2154.4, "那個費用都是　那個算是外管　那個是外管　內管指的是　譬如說你有可能出　出一個　對啊　你可能要公改　客戶的費用就另外算　客戶當然就另外算　照理講現在是不給點　對"], [2174.4, "所以他寫外管其實是蠻合理的　好那就是費用方面把它附註上去　因為他沒有寫說費用是要付的　我贊成　還有主要就是剛剛講的那個信託　我們土地太早　太早配　被那個信託起來　應該是要等事業合格之後"], [2194.5, "然後信託費用也是要以防負擔　對　因為他這邊　就是我之前傳的那個范蠅獨分上面　就有也是就是有　同時請看你現在在群組裡　不用　請看你就把你說的這個都具體起來　我們到時候家家戶戶每一個　我們就統一把它　對　在那邊看是不是可以這樣"], [2216.9, "對　然後他們　而且您本身就是室內設計　的專業對不對　還是說我們有想要　等下我們其他有什麼要修改的　可以一定請您　然後您來做整理　我就就給他就好　不用我不用　對因為我的文筆不好　我我的文筆不好　因為這方面你比較懂"], [2240.3, "那我們不懂　所以你來跟他們說　其實我也是看到我只是有認真　他那個新北市政府　競爭的那個範例　我把它印出來我有認真　然後發現到因為他有值得注意的地方　他都有用紅字　是　因為我們這邊可能都沒有沒有人有這個專業"], [2260.4, "到時候要提出去就有您來幫幫我提就好了　好不好　好　那我們要不要請接下來請那個毛先生先來跟我們說　完全沒有進入狀況　沒有進入　我們在討論過程我都沒有參與　對　我剛剛有跟"], [2280.4, "有些人講過我的處境　因為我這房子是據審來的　我是據審來的　記審來的　所以當時我來這房子大家都知道這房子很老　他超過50年也知道老房子　所以我當時有好朋友非常要好的朋友說"], [2302.1, "他想租房子　我說這房子要租的話一定要整修　我不整修的話　這房子已經太老了　而且我也不可能計算馬上給他賣掉　那個是對不起我那個老銀帳的老銀婆　這你認識的　林公公跟林婆婆　對　我叫他以夫以婦"], [2323.5, "我就不能這樣　對　我就不能這樣說馬上給他賣掉　林公公跟林婆婆　我當時就是你要整修　他說你要整修的話　他說我起碼要簽約要一圈長一點　他後來怎麼裝優化了　我現在要花270萬　我說既然你花270萬　價錢隨便你開了"], [2344.9, "所以我並不是在乎那個租金　所以那個租金是一個月一萬塊錢　你剛剛聽了那個會　嚇一跳我們這裡租金一萬塊錢　我說還跟他講　不要跟左右的領導講　這個是整個破壞行情的　那是因為道義上他這樣做　我叫　你了解了解　我這個人很容易查查"], [2366.6, "你知道Google搜尋我的名字　知道我這個人幹什麼樣子　我最不怕說你要搶著猜　假如我跟你抗爭的話　都會翻掉的　這個人就很清楚　我去打摸鐵軌　我去Google公共把Google公共貪亂掉　問我可以待一群觀眾　所以假如他們都談得好"], [2387.5, "都是好事　可是重量不在我身上　我需要跟我的　我朋友談一下　好好談一下　怎麼不請他一起下來　因為我自己都不見過　見不了狀況　所以我找他下來根本就　我自己搞不清楚　所以我叫我小孩來聽聽看　毛小姐來　對　我在想再談我可能要找他"], [2411.5, "對啊　跟他談一下　因為畢竟我答應的事情我不會　那可以特別請問一下　您跟他前20年嗎　那是到什麼時候　好像才做了幾年來一點　20年　因為我有律師公證　因為這直接講的醜話講在前面"], [2434.2, "我跟他講說　你這樣花270萬　你雅無千長的年　我78歲　我再過幾年掛了　我小孩不認帳的話　你就很難漏　我們這個道義上一定要講明　法律上的責任一定要有在　20年有他不處理"], [2455.6, "那我也看不到　20年到什麼時候不記得了　不記得　好　要看合約吧　沒有看合約　這個問題我剛聽了一下　我建議大家可以做幾個方向去思考　就是說就跟黃小姐　她有提到一個很重要的點　就是說時間還有機會"], [2480.0, "就是說相對來講　再加上黃天生剛才有這個強調　他相對蠻羨慕我們的　因為這中間的那個　那個力差蠻大的　然後再從另外一角度來講就是說　舊房子跟新房子　即使什麼條件都不要談　坪數即使是比你現在住的　再少個20%"], [2503.0, "但是那個新房子的價值的坪數轉不起來　你就有去賺　你從這個角度去思考的話就是　你剛講那個270萬　就有你的空間　你跟我講的那個價錢　對我來講我沒有把它　沒有意義　對我來講沒有意義　你如果會增加多少錢都沒有意義　這個講明了"], [2524.6, "就我這個人　我　有答一下的問題　你跟我講一下講完　我說你可以　我可以找他下　下個月時間跟他下來好好談　他要接受最好　那經濟有問題吧　因為今天大家都在　對啊　他應該不在　因為他是中研院的研究員"], [2546.5, "你說那個吳小姐是不是　另外一個外國　外國人　對那個叫做那個叫什麼那個"], [2555.9, "（雜訊／無法辨識）"], [2557.3, "他是中研院的研究員　我知道　那個是另外一個事情　我剛剛提的點　不要講的是這樣子　就是說他有花270萬去做這個整修　對不對　那我只是提供了一個另外一個角度　就是說　這個案子　如果有成的話　你有很大的籌碼跟資源去處理這個事情"], [2581.8, "跟你一臥就是　相對從另外一個角度來講　那就是說這裡面總共有8戶　我這樣講　你不必跟我講以前的問題　我以前這個在道義上　那我出去就毀掉了　我起碼留到最後還可以　這個老毛這個人還不錯"], [2603.3, "道義上　這個異例跟我們沒有談的　我需要跟他好好談的　我尊重他　你跟我講說增加多少財富　那是虛無的　對我來講那是不重要的　真的不重要的　現在是房子結構老的問題"], [2623.7, "對這也不是錢的問題沒錯　但是房子真的老了　我們變成說你裡面裝修　可是他結構不穩　這還是問題　所以從這個角度出發　我跟你講這個房子其實蓋的時候　你應該知道他非常非常的健康　當時裝修的那個人家的師傅講說　他看過那麼多老房子"], [2645.2, "這房子非常非常的健康　那是因為你不住頂樓　你說我頂樓的女兒　都快掉了　都快掉了　會砸下來的　會砸下來的　而且你用後陽台的那個天花板都塌了　這個都其次　其他的我會跟找他　跟大家談　所以這個就是"], [2666.0, "王先生我有一個晚費　在這邊先跟您舉個動　然後我想聽您　請您聽我說一句話　我百分之一千萬相信您在我們中華民國　甚至華人地區　這個道義方面的這個道度　還有所有人對你的崇敬"], [2686.5, "可是我的意思是說　這是不是也關係到我們這整棟樓　其他地主　我得跟他講　對　所以道義的部分　是不是也要考量到我們其他人的意義　感謝這個毛先生　感謝　當然了　感謝毛先生　感謝毛先生　其他都是　因為其實現在社會上有一股"], [2707.4, "在我看來是清流　因為大家對於更新這件事情　只要有人反對　他就會變兵直步　大家就覺得你這個就是不道德　所以其實大家都很希望說　讓整個環境跟整個一起做更新　現在基本上比較容易說服了"], [2728.2, "我也希望圓滿簡訊　對他來講也是好事　能不能他　他只要繼續做　還是給他繼續做　這個態度是不變的　希望說毛先生有請他　我要請他　甚至我們可以大家幫他先暫時住到更好　從另外一個角度來講"], [2748.9, "就是說這個建商　他因為要蓋這個房子　他有一些　房租的補助款　這是一方面　另外一個方面說　如果你要保持住你對他的承諾　或道義來講的話　我就問你一個很直白的話　這個房子假設經歷了千辛萬苦　經歷了很多的東西順利解決了以後"], [2772.2, "你願不願意再繼續租他　這個當然要租他　好嘛　這個問題就是　所以你不是不租他　你不是租你給我　我也不會給我　我也不給他去租　這個態度一定是這樣　做人會期盼　所以你不是不租他　這個態度一定這樣　所以你不是不租他　因為我要說服他"], [2792.6, "不是說服我　這個利益都不會到我身上　我借這個房子　你不知道那個　我借房子給你小孩　對　他們有房子　他們自己有房子　因為現在分72別　其實你可以分兩三間　你可以選兩三間房子　因為他有規務　住中平數"], [2812.8, "所以你自己也有一個房子在期有　對對對　等一下　你可以賣　然後又可以租人　所以你沒有規務　賣更不可以　你可以有做合併　這個是他給我的　我能把它賣掉嗎　要不然那時候　你知道當時那個領導　跑來跟我講說　我買了一間"], [2833.4, "我入關那種　買無銷的　那還真的很關鍵　我說這個不能賣　老公留下來不能賣　不能動　他會把他拿回來　他會知道說　因為其實如果你跟房子　實在不一樣　我10年了　那房子已經沒使用了　他如果要買買　他那個　你不要說20年去　你很嚇人　可是更新的條款"], [2854.3, "你跟他就是鼓勵你房子要更新　所以他說　所以有些人其實我今天要賣　可是我可能要花很高的代價　要給很多的錢　可是更新這件事情　除了在實質上你這個價值　房子的價值增值之後　你的這些稅率其實也會差很多"], [2876.7, "因為我當時那個是贈予我的　他贈予就有70萬　好不懂　先生的意思是說　他這個好朋友就要討厭他　對　要解決這段　那就請他來跟我們一起討論　楊先生剛剛的意思就是說　其實建商會輔助我們搬家　所以你朋友我們也會"], [2896.8, "建商也會先　他不是沒有地方住　而且你也不是　那也會有地方　我們能拜託　所以這不是　這個就不見得了　所以要跟他溝通　不是跟他溝通　他那個忙碌的陳生　拜託你一件事　就是說你能不能　我會儘管　幫我們積極的跟他聊天　因為這個其實是有實效性的　他們兩個我常常到熱捨的時候"], [2917.3, "碰到他　而這個實效性　你可以跟他聊聊　你跟他聊　好吧　如果你跟他聊　我會跟你　我常常碰到他聊　跟他加油　拿進去　而這個實效性會　原來會關係到　我本來一直想把他拉進來　我一想想算了　因為他跟這個　都更這個他也不親　沒有　我現在發現"], [2937.8, "他才是我們這整個都更案　能不能　最關鍵的不一定　所以你要去　對　因為　一個一個　他這樣子暈　但是剛剛還有另外一個問題　我再補充一下　就是說　我覺得剛剛黃小姐提起了一個　我覺得有一個很重要的點　大家可以思考一下"], [2957.8, "就是說　不管是80%同意　還是90%同意"], [2961.9, "（雜訊／無法辨識）"], [2963.2, "那個實效性是不一樣　說這樣講的話　那個呈現上至少　所以跟他講　但是講說80%同意　你就可以拆掉　沒有人敢拆我的　你問問看　新北市台北市　我讓總統都很難堪　真的　都能混　所以現在"], [2984.7, "所以我有一條　這個東西都不是我的問題　那毛先生　我們怎麼找到您朋友　楊先生　你跟毛先生加一下他朋友　對啊　沒有　他跟我也沒有在　沒關係"], [2999.7, "（雜訊／無法辨識）"], [3000.6, "我相信老天鵝會帶你　我相信在不久的將來　到那時候就會碰到他　只有他會做　我以為跟他講　我今天不一定就跟他講　你現在要搞清楚"], [3013.4, "（雜訊／無法辨識）"], [3015.6, "不是　我跟你講　其實不只是　應該這樣講　我個人認為　每一個人都是key point　而且相對來講　我們這八戶　只是這整個建地　就是裡面的其中的　不到50%　但是大家有這個機會　有這個機緣的話　我們就大家一起"], [3035.6, "把我們的舊房子變成新房子　對　不管你要賣還是要繼續給　留給小孩子　還是說繼續要租給你的朋友　怎麼樣　這都是可以繼續下去的　而且可以跟你老朋友講說　就是說我不是跟你　違反我的計劃　我承諾　我之前你花了那麼多錢"], [3056.2, "270萬年後300萬年後　現在有新房子住　不是你舊屋翻新這樣子　我還翻新了　你還繼續租給我　然後我覺得這個承諾的問題　道義的問題　就看你用什麼角度去看　我反而認為是說　你就我的角度來講　你完全沒有違背你的道義　我承諾"], [3076.4, "你有keep to你的道義　我們藉由直接私底下　我講一句　對啊　對我們今天才說　來我們這邊　多感謝你　謝謝　謝謝　謝謝　謝謝　真的　真的真的真的　一口氣就沒有多久了　不會不會　您常立滿歲　不要啦　您常立滿歲"], [3096.5, "那個活得很痛苦　不會不會　我一樣我78歲　在國兒也沒體責　不會不會　我看冷開　這一次的房子　這一次我們要美型的　要看冷開　要看冷開　所以我不在乎這個房子　才會有這樣的想法　所以重點是他的朋友要講　對　所以他的問題也很好解決"], [3117.2, "對　他跟朋友有承諾　對　他要履行他的承諾　所以那個　他裡面猜到以後　他不會給你地方住的　對　我們就猜的很明顯　不會說我　他有地方住　我轉租金　你戴了房子　你去還你自己　我自己也是別人的朋友　對　我是說　所以說這個問題　而且我知道"], [3138.0, "我們這報告裡面　是找　另外一個大哥　他這附近有一些房子　如果他想要去　就是就近　就他　就在方面來講　其實我是覺得　中轉的期間　不管是兩年還是三年　甚至五年　打算不好的地方住　這樣就不為美型了"], [3158.8, "那也可以　我覺得這個　其實講真的　我老姨讓我住在這裡　我算很幸運的　他們一樓　他爸爸媽媽都在他們照顧　我老姨讓我　我婆婆也是　我都還有來找過　那個林東東　因為我從小看我長大　對啊　我結婚的時候我們還有　就是"], [3179.1, "你小時候有這麼可愛嗎　比現在可愛多了　對啊　你現在可愛多了　話有這麼多嗎　好　我把大帳就這樣了　OK 好 謝謝　我需要跟我的　好 謝謝　所以他的問題不難解決　因為主要給他承諾　對啊　所以我要看起來"], [3199.7, "八戶大家都　我今天講的東西都不會說　講完收回來　我看他出鏡很多　不然我再　沒有要談這個　我收一萬　太道義了　我講一萬塊錢出鏡　你們會嚇一跳　真的嚇一跳　真的嚇一跳　真的　真的　真的　所以毛先生的做人　真的是沒辦法說"], [3220.6, "真的　這了解　有　你要想你不太容易了解　用google搜尋我的　是沒問題　我　對　要接聽　不會　您今天為大家開示了這段故事　我們就聽了解你　真的　現在就是大概要　你也幫忙"], [3241.3, "你經常碰到他就跟他　跟他說　我是跟他　誰也好多　對　不是　是引咬到你們　我知道那個Terry　要他研究孤單系的　台灣孤單系　台灣文化　他在中研院研究那個　做研究員的一個　戲曲　我有認識　中研院的　搞不好有誰認識他"], [3262.3, "真的　我們先換楊先生跟一樓的　我們再聽聽其他好鄰居的意見　好不好　如果沒有意見　我們就從二號一樓開始　你剛講的再服從一下　另外一個點就是說　其實我剛提到　再從另外一個角度來講"], [3283.5, "就是說這個不管是法律上的　剛何小姐有一個　對　他很棒　他有注意到一些法律的細節　然後我們可以注意到的地方　盡量　就是說我們有期待　但是有一些少許擔心　就是說萬一如果不曉得什麼因素　沒有辦法繼續走下去　我們的財產權東西"], [3305.1, "還有沒有辦法可以　還持有　沒有辦法去做一個復原　這個東西要考到的　我覺得有找到有可以救贖的方式　補充的方式　這樣就沒有太必要說去　擔憂百分之一千這樣的榮光　另外一點就是說你剛提到的　所謂電動車位 廚餘那些"], [3326.0, "那些各種處理這些東西的話　我是覺得說我們當然可以想到的地方　盡量去想　但是有一個角度就是說　一樣這個合約　它跟前面超過百分之五十以上的住戶　是這樣講　我們再提出一個部分的話　變成條件不同　我們都可以去提　我們的角度或許可以從另外一個角度去跟他講"], [3346.7, "就是說　如果你有這個　如果你能夠增加這些的話　可能會幫助你賣的時候更有價值　賣更好的價格　當然　你考慮一下　當然他們有很多的那些建材什麼東西　他們有他們的考量　他們有要考量　如果說就這些點要很細的　具體的去講這些東西的話"], [3368.2, "我覺得對整個案子的促成　不一定有很大的幫助　我是這樣子覺得的　好 以上　那黃老師那個黃小姐　有事情要先走　謝謝他了　真的　蔡元潔也是他幫忙的　我們再次恭喜你們　請繼續宣布　還是我幫你禱告　我先不得要死"], [3388.3, "你每天都要禱告　你先把你那個眾多的一百戶先列給我　沒有 只有一百戶　好啦　謝謝　謝謝　謝謝　謝謝　拜拜　這次我們上次那個建材設備　我覺得　我覺得比較有情感"], [3408.8, "對不對　這個就留給你　到時候要加就加　不加我也沒關係　我覺得我撲克剛剛梁先生的想法　因為我覺得在整個這個案裡頭　這些都是小細節　我覺得大方向是因為我們要把這個資本案　就是說攀層　攀層"], [3428.9, "這我完全贊成　不要因為這些小細節　我完全贊成　反而是信託　對不對　那些是對大家那個很重要的部分　我們再去左演這部分　那至於建材或是說充電樁　充電樁那個我也有發現　據說他並沒有這些　可是我覺得這些都是比較後化的"], [3450.9, "對啦後面的啦　這個我完全同意　因為我覺得不需要現在糾結在這個上面　那我們現在就是從這邊　二號一樓　二號一樓　二樓　那個楊老闆發言完那不行　孫老闆　二號二樓"], [3471.2, "不　孫老闆　我沒有意見　我覺得他的問題很容易解決　他只要道理問題解決就OK了　好好好　那我們那個毛先生要不要再發言　沒有問題　因為我這個完全不清楚　我先問我再問一個　那這條巷子怎麼辦　稍微移一下　他會改到最旁邊　改到最旁邊的"], [3491.7, "整個巷子還是會有　只是說地理問題　會稍微移一下　因為他的建築　因為造成這個巷子是一個很複雜的巷子　你不可能廢掉巷子　廢掉既有的巷子　就是廢掉　廢掉之後然後再增加　增加掉　改到了　你知道嗎　這一戶是很內行的"], [3511.8, "這一戶是廢掉的非常內行的　就是新建這種大樓　這個是　你說這一戶是很內行的　是黃小姐　那我要跟您講一件事　報告一下　在黃小姐的眼裡　嗯　您跟他有認識嗎　不認識　這個大家對這一戶是不認識的　在黃小姐的眼裡"], [3532.7, "這是他要坐車來做過　他說他說這一戶是最笨的　吃虧了　真的是最笨的　他甚至講說如果是他的話　他會把現在這邊把它拆掉　把它拆掉　然後用他的土地去跟這裡合　那個利益才是最大　當然毛先生有毛先生的觀點　那黃小姐有黃小姐的專業"], [3555.0, "我只是剛剛開車去接他來的路程中　他說你們之前不是有一個姓林的小姐　是要自己蓋嗎　陳小姐　然後然後然後他問我說　他現在在蓋嗎　我說在蓋　他說哎呀他那是最笨的　如果是他的話現在馬上拆掉　合進來　真的真的真的　我的看法跟這個黃小姐一樣"], [3577.2, "是一模一樣的　因為他是獨棟的　他可以分很多很多　對　他當時有當時的想法　後來去討論　有律師的時候　那個律師還說我幫他介紹　這樣子　後來後來就不敢接觸了　因為人家有些東西他還有他的一些專業　他自己也是建築公司"], [3597.2, "他自己搞建築　幾年前沒有忍住忍到現在　他如果忍到現在的話　他蓋房子有一部分是為他母親蓋　他要讓他母親在的時候看到那個房子蓋開　因為那個房子當時　大家應該知道　那個裡面有很多人　所以他才要為了母親才要"], [3617.3, "想等了啦　所以是孝心啦　孝心　對他們想的需求啦　好　那我們就換4號　2號4樓　9號先生講　因為我剛剛有講過　許先生嘛　對　大家好　就是這個房子很舊了嘛　又是徒更嘛"], [3637.6, "又是更新啊　又是盡量配合大家　就是　換一個新的房子　好　價值也提高很多　提高了兩三倍　對啊　剩下30年流行的房子　謝謝　那個我們這邊是兩三倍　孫先生你們那邊"], [3657.6, "不只　你們那邊不只兩三倍　你們那邊大概到四倍　哪裡　價值　對啊　這樣子四倍　四倍啊不是兩三倍啊　我們這邊這些價值　毛先生講這個是此商不貴　我希望　我們不要砍錢　請他明償五萬錢　我們不要砍錢"], [3677.7, "對啊　所以他剛剛講的信託很重要　弄不好就是你把地給人家抵押掉　對啊　對啊　黃告示　對啊　所以我們保障我們的所有錢　所有潛力　然後萬一假設有什麼　沒有預期的狀況　最貴剩這塊錢　剩下這塊錢就吃掉了　我們有一個親戚這個去年啊"], [3698.7, "就沒信託　然後那個建商就一直拿去　貸款　然後那個親戚後來覺得不行了　房子要回來　那個潛力要回來　損失了一千多萬才要回來　對　他也是一種透天的沒蓋層　所以我才說信託那邊　特別是住人家家庭　就是按照那個嘛"], [3721.9, "按照我們　那既有的然後下面再出　好　那再來就我們請　事後一樓事後一樓　我再一次　沒有什麼意見　因為我們自己住　也沒有就是到時候說要蓋房子　是自己住的　對對對　所以就是合約基本上不是覺得合約"], [3742.1, "可以就可以了　因為你要他也是他蓋了　他也知道賣　所以我覺得設備這些　他也不可能弄開讓給你　對啊　所以就是我是覺得那個信託　那個部分比較重要　對剩下來的部分　我覺得就也不是　不要吃　不會那麼K的那個部分　好　大家一樣就好　對啊"], [3762.9, "就是那個不是那麼重要　好好好　那因為我是吃到餓了　我就跳過　那沒有意見　沒有意見　那那個　有沒有意見　真的是希望　因為我在維修到　有點受不了　對對對　我們的女兒牆整個包那個不鏽鋼　對啊　其實沒有包都會垮掉"], [3783.5, "他幾乎都快要垮掉了　對對對　就是我們那個透陽台　是是是　那個月燈很容易滲水　對對對　結果整個那個就是　他四樓已經快要熄了　對真的真的　他那四樓已經快要熄了　對沒錯了　這個我也　那個結構真的沒有很好　我自己做裝修的"], [3804.0, "我們四樓也花了好幾百萬　對啊　他特別叫我那樣噴來噴去　對　因為上一次長者的時候　你就想說我才剛修　剛搞修　因為我印象很深刻　但是我們只有上去修一次　對　請人家上屋頂　上屋頂喔　然後那個如果　就是我們要　那個女兒牆很矮"], [3825.4, "對對對　然後就感覺很危險　其實你用力推　搞不好　我都要給你折扣　對啊對啊對啊　這樣太髒了　然後那個那個平樓　隔上的女兒牆都蓋了　你看我們台灣的地震那麼多　所以我有請人上去　而且我們那個地板　只要是那個地板滲水的話　因為太老舊了嘛　滲水進去　然後就往下滲"], [3845.5, "對　那就到你家清化牌　對　然後清化牌就掉下來　哎呀　我裝修好了之後　他們家弄什麼　一下雨喔　我們家　哇　而且我剛　我整個都裝完好了　哇　整個弄得這樣　我趕快去找他　不許你去找他　所以還去找那個　然後我是　我是養那個上面的水"], [3866.4, "一直灌下來一直灌下來　然後你知道就是　很大聲　在我覺得這個遮雨棚　然後我去找這個牌子　我們現在排水系統　都往後停到那個　會生下雪　那我們室內的　都雨量會飛升下來　那我們今天的奧委員　應該　大家的發言都完成了嘛　那我們是不是"], [3886.4, "這房子真的是空的　請　我是這麼想啦　因為剛剛那個　許太太這邊提到的是最重要的　對　那好　那因為許太太有那個　新北市的條文嘛　對　那是不是就是說　因為是基礎上面　對對　因為我跟我太太本身是住在台北"], [3907.1, "那是不是我們就通過說　比如說　我們就通過　比如說請許太太跟許先生　或者是說那個比較有經驗的楊先生　孫先生　代表我們去跟線商講說　這個部分要改成這樣　真的應該也講一下"], [3927.4, "你要不要在那個就是　直接在群組講　我先在群組講　好啊　再跟線商的群組　現在拖到群組　然後請那個他們的業務　對　那他跟老闆　我是這麼想　因為這個在群　是不是要請他們的專員　直接來跟許太太講"], [3949.5, "現在問題應該就是那個　廖久毛先生跟他的那個房客　因為他上次有給我們兩個禮拜的時間　要確認　對對對　因為時間要　這個不是要講　這個我覺得可以分頭進行　就是說因為至少我們　如果說假設　包路裡面還有一戶就毛先生這邊"], [3971.2, "還沒有很確認對不對　至少七戶來講已經超過80%了　對　我們就跟他講說　七戶同意一戶還在溝通中　對　然後我們就這樣進行　不是　可是你要講說我們毛先生其實他沒有反對　只是因為　所以要分頭嘛　所以要分頭嘛　所以要分頭嘛　對　所以基本上應該只要那一位"], [3993.5, "不是啊　沒有問問題　應該是八戶都會　我們假的意思就是說　我們就分頭進行　因為這個東西從他們要準備一些資料　對　去配合就是這個東西　我是覺得很多事情可以同時變形　也就是先變形　那我們要怎麼分配這兩件事"], [4014.5, "就分不準　不然我就先把那個合約要改的先改　然後再查到群組　然後大家確認之後　我們再跟那個　對　好好好　這個部分　好　那這個黃先生頭的部分　你要來跟他們　我這樣　我再提一個東西　好　今天都控案官　你怎麼這樣做"], [4035.3, "不要錢是最貴的　那我私下請客　我說這樣　我們自己應該講真的　他們成長每戶要出錢　請他們做顧問　那才對　沒有沒有　那個東西　不是道義上　不是這個　這個平安　沒事　這個觀念"], [4056.5, "一定是這樣　這個有這個　這個這個　這個要有一定程度的時候　我們大家會　至少至少會有一個　這沒事　小小的　沒事沒事　這個　這不然會做這個　這真的沒有　這真的沒有　來　這個是我這次去大陸　找到一位大陸真正的藝術家　買的藝術品"], [4077.4, "然後他的顏色　他的內涵　我保證我的這個好朋友會喜歡　這從大陸來的　這大陸的藝術家跟這個事無關　謝謝你　所以　讓黃小姐這個更容易解決　沒有沒有 他很像 政府當面講的　沒事沒事 很多人都容易　不是靠他們的經濟"], [4097.6, "這樣子啦 我們謝謝劉先生啦　所以你看 劉先生真的很講道義　真的有情義　有我真的好朋友 都聽我們講道義　真的有情義　真的有情義　不是不是 因為黃小姐這個更好解決　對 更好解決　對 好 其實人家才講說　張先生是我四十年的老同學"], [4119.9, "他一定要出更多的東西　沒有啦 沒有啦　張先生我四十幾年的老同學 真的　他對我們夫妻有恩啦　對 真的　張先生跟我們都沒有關係　是跟你沒有關係　然後我們今天太圓滿了　謝謝大家　最後 我想跟王先生確認一下　是不是改天"], [4141.2, "他　他可以照三樓　人家看到三樓　他可以不要照　你先跟他說一下　我先跟他講　把這個情形告訴他　你可以代表其他情形跟他講　所以王先生因為道義的問題　我跟他講　對 我說你先跟他講　我問他講　那我們兩個有道任什麼問題　沒有啦 我們都有　還是老天爺"], [4162.5, "就跟他說王先生因為道義的問題　兩心情　我會講是　我會建議　我會建議您跟楊先生一起　對 兩心情　一起會用　我還是會讓他同意　我沒有　這個是牽扯到大家的利益　我的問題是　因為我　因為要研究"], [4183.2, "這個房子真的不在乎　完全沒有把他投入　小孩他們自己有房子的　他們自己有房子　還有孫子　關係到小孩　我這個房子來得很幸運　這個還寄給你　有關係到這個身體的環境　我們都知道這個房子跟您無關"], [4205.9, "跟您有可能也沒什麼關係　可是跟我們大家很有關　所以我真的要拜託您　拜託 拜託 謝謝　謝謝　謝謝　我們去的那邊真的非常謝謝　所以只是中間有關　謝謝　好 謝謝　那我們是不是就　現在有兩個部分　一個就是請許太太把那個"], [4227.2, "橋文寫好我們大家說這種　然後就傳給那個建商　然後另外一個部分就請　楊先生跟孫先生抽空來跟　毛先生的那個　我今天晚上就跟他聯絡　好 謝謝 謝謝　跟他講說　我們會　我祝福的代表想跟你好好談一談"], [4248.2, "主要是因為他有那個　他還欠我一杯咖啡　一個吳小姐　那好適合　沒事沒事　他們很好談　對啊他們兩個都欠我一杯　對啊 還蠻好聊的　蠻好聊的　對　那我們再次謝謝我們孫先生　今天謝謝我們　我真的覺得我真的是"], [4270.7, "捧到孫先生的福氣　你看他進情組不到一個禮拜　馬上都入更　然後不到兩個禮拜　我們大家就談得很愉快了　這個一定是　捧到孫先生的福氣　還有那個　孫太太的福氣　一個好靈基的　謝謝　我們大家都是　有錢可以用來支持的"], [4292.0, "謝謝　那我們今天就結束　那就拜訪各位了　好謝謝　謝謝　就不淋花臉　謝謝　謝謝　謝謝　你爸是嗎　他不夠時間　對　所以現在我們自己住　今天這麼多　謝謝　你爸爸都很　很照顧　有有"], [4313.2, "以前都在商區　對　沒事　就是靈居啦　那你做這個　那你拿下去冰箱　我一定要照顧他一點　有啊　他有時候會　有時候會　他有時候會　因為　因為　因為　因為　因為　因為　因為　因為　因為　因為　因為　因為　因為　因為　因為　因為　因為　因為"], [4333.4, "因為　因為　因為　因為　因為　因為　因為　因為　謝謝　不用,不用,不用,在上面　謝謝,謝謝"], [4354.0, "謝謝,謝謝　謝謝　謝謝　你們也是福氣啊　剛好買了　對啊,對啊,謝謝你　謝謝你們　不會不會不會　拜拜,再聯絡"], [4406.8, "謝謝　哇哇哇"], [4412.4, "（雜訊／無法辨識）"], [4416.3, "你看到沒有　哦,我們裏面ô　給10片出來　我們才50片"], [4436.4, "Wow要給她更多錢　沒有啦,他們是,他們最好是,我們住宅　他們是商業　現在查理毛先生啦,做那個那個什麼"], [4459.6, "毛先生,做他　做那個啦,那可以改改,毛先生　毛先生,有什麼意見　大家都要賭啦　他們很小聲,他們待會兒搬回來聽你就知道　那都專業的啦　啊,我會出價的　你會出價的,待會兒,他們要搬回來聽"], [4486.5, "他們都去,都,都　你們自己去訂來的　他們都,他們每天　你們訂來,我待會兒,我團會,我時間好　哇,這已經三點了嘛,你五點了,當然,我們搬一張"], [4508.9, "我們才五點,他們七點了　啊,這個師傅聽說,有多好奇的　剛好一百年了,就是要出國　他說,你也不知道　喂喂,趕快回來,趕快回來　快快快快快　大家一起來聽　過馬路趕快回來聽　趕快　他們經常來,過,過馬路"], [4530.3, "啊,好奇啦　好奇啦　哦,那毛先生真的好奇啦　他這樣分就七十,七十平　對啊　好奇　七十平就出價了　拜託一下,他分七十平,我們這分五十平耶　對啊　對啊,我們這五十人,他七十耶"], [4555.3, "他有說到啦,人家那個,那個社區書有啊　人家在專業的有說,說到　有啊,那個哦　說到是他最好啦,他去這,他最好　你也不如跟他來,來,來"], [4597.0, "（雜訊／無法辨識）"], [4603.1, "超難 ouv"], [4603.7, "（雜訊／無法辨識）"], [4665.2, "對,他說他全部都看不到了　他,馬先生都沒那麼多話　剛才跟喔,對他來說沒有說太多　他說他看不到了　沒聽到啦　他說他看不到了,他說他已經78歲,我們年紀那麼大　對啦,以前一直看不到了　他看不到了,他說他看不到了"], [4686.6, "所以不跟,所以他不會自己　對　他看不到了,他看不到了　那你也要去電視看什麼　我說你要,你要,你,你　我說你,我,我,我不知道這個情形　但是,這電視看得到嗎　是電視看得到,電視看得到"], [4708.0, "所以是電視看得到　那他最好是做這個,他剛才聽得到　一台冷發機的　電視看得到　電視看得到　啊,那他都聽得到　那他都聽得到　那他都聽得到　他剛才自己開,他才企業花20年　啊,他就開270萬"], [4729.7, "但是這二老的說,這個問題　270萬我幫你出　喔,你的小心膽　喔,喔,喔,不是小心膽　中醫藥　中醫藥　因為你的醫生,他這個來　我們這機器有五六千萬的東西　對"], [4749.9, "五六千萬的東西,270萬我幫你出　對　這樣,這樣,這樣,這樣,這樣　阿貓先生不要,他說　不要,不要,不要,不要　他說這個這個,可以改過　結果大家替他想一個辦法　就是說　其他想說的辦法,就是說　你現在,現在你如果剛開始　有資金給你"], [4771.4, "你讓他去看他要做什麼　做什麼比較舒適的　還是比較貴的沒關係　你說,我要他貼著　我會貼著他　對,我會貼著他　啊,當你資金更好的時候　啊,你如果要做醫理　你也可以做醫理　不過也差不多幾年了　他已經來這裡做十年了　啊,他二十年了　對啊,還有十年"], [4793.4, "對喔　他說這個好改革啊　人家都知道醫療也是　醫療先生也是說這個好改革啊　這好解決啊　啊,那是,是嫌你都會落口啊,還會怎樣啊　他們說你這個改革了,我才知道　啊,這兩杯咖啡,我也要來喝啦"], [4814.3, "那時候那邊人家說要去買咖啡　對啊,啊,沒人要喝啊　沒人要喝　我就想說,我再拿一杯　你這個你不要去喔　這要放,放錄音　這要放在大牆　你就知道說　開會開什麼　趕快,趕快　啊,要賺大錢了,要賺大　阿媽要賺大錢了　對,賺大錢　阿媽要賺大錢了"], [4836.1, "趕快錄音,錄音趕快把我放下去　錄音給我　在這裡放大聲嘛　阿媽,你先來　我們先來玩啊　來來,放大聲,放下去大家一起聽啊"]];
+  var SECTIONS = AGENDA.map(function (a) { return [a[0], a[3]]; });
+  var txBox = document.getElementById("tx"), q = document.getElementById("tx-q"), cnt = document.getElementById("tx-count");
+  function esc(s) { return s.replace(/[&<>]/g, function (c) { return { "&": "&amp;", "<": "&lt;", ">": "&gt;" }[c]; }); }
+  function renderTx(term) {
+    var frag = document.createDocumentFragment(), n = 0, si = 0;
+    TX.forEach(function (r) {
+      while (!term && si < SECTIONS.length && SECTIONS[si][0] <= r[0]) { frag.appendChild(el("div", { class: "tx-row" }, '<div class="sec">' + fmt(SECTIONS[si][0]) + "　" + SECTIONS[si][1] + "</div>")); si++; }
+      if (term && r[1].indexOf(term) < 0) return;
+      n++;
+      var txt = esc(r[1]);
+      if (term) txt = txt.split(esc(term)).join("<mark>" + esc(term) + "</mark>");
+      frag.appendChild(el("div", { class: "tx-row" }, "<div>" + tsBtn(r[0]) + "</div><p>" + txt + "</p>"));
+    });
+    txBox.innerHTML = ""; txBox.appendChild(frag);
+    cnt.textContent = term ? "找到 " + n + " 段" : "共 " + TX.length + " 段";
+  }
+  var timer;
+  q.addEventListener("input", function () { clearTimeout(timer); timer = setTimeout(function () { renderTx(q.value.trim()); }, 150); });
+  renderTx("");
+})();
+</script>
+</body>
+</html>
